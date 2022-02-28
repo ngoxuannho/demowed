@@ -90,6 +90,7 @@ const Wrapper = styled.div`
 const CollapseIcon = styled(HomeFilled)`
   display: none;
   width: 48px;
+  font-size: 1.2em;
   cursor: pointer;
 
   @media (max-width: 768px) {

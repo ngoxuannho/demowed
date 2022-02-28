@@ -4,10 +4,11 @@ import {
   PlusOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { Button, InputNumber } from "antd";
+import { Button } from "antd";
 import { ReactNode, useState } from "react";
 import { accent, lightGrey } from "../../rootStyledComponents";
 import { Link } from "react-router-dom";
+import InputNumber from "../../components/InputNumber";
 
 export default ({
   qty,
@@ -26,20 +27,7 @@ export default ({
 }) => {
   return (
     <CartBarWrapper>
-      <InputHolder>
-        <MinusOutlined onClick={clickDecrement} />
-        <StyledInputNumber
-          value={qty}
-          min={1}
-          max={10}
-          defaultValue={1}
-          size="small"
-          controls={false}
-          bordered={false}
-          readOnly={true}
-        />
-        <PlusOutlined onClick={clickIncrement} />
-      </InputHolder>
+      <InputNumber qty={qty} clickIncrement={clickIncrement} clickDecrement={clickDecrement} />
       {!linkDisabled && (
         <Link className="link" to={"/"}>
           <StyledBtn

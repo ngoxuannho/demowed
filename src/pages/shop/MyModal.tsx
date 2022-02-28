@@ -9,7 +9,10 @@ import Options from "../details/Options";
 import AddCartBar from "../details/AddCartBar";
 import { addToCart } from "../../utils/addToCart";
 import { StyledBtn } from "../details/AddCartBar";
-import {ShoppingCartOutlined} from "@ant-design/icons"
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { addToCartSlice } from "../../slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../slices/rootReducer";
 interface ModalProps {
   id: number;
   imgUrl: string;
@@ -36,9 +39,10 @@ export default ({
   const [selectedSize, setSelectedSize] = useState(sizeMap[0]);
   const [qty, setQty] = useState(1);
   const [priceQty, setPriceQty] = useState(price);
-  useEffect(()=>{
-    setPriceQty(qty * price)
-  },[qty])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    setPriceQty(qty * price);
+  }, [qty]);
   const clickIncrement = () => {
     if (qty == 10) return;
     setQty(qty + 1);
@@ -115,7 +119,7 @@ export default ({
               sizeMap={sizeMap}
             />
             <AddCartBar
-            linkDisabled={true}
+              linkDisabled={true}
               qty={qty}
               clickIncrement={clickIncrement}
               clickDecrement={clickDecrement}
@@ -126,12 +130,17 @@ export default ({
                 shape="round"
                 icon={<ShoppingCartOutlined />}
                 onClick={() =>
-                  addToCart({
-                    id: id,
-                    options: selectedColor,
-                    qty: qty,
-                    size: selectedSize,
-                  })
+                  dispatch(
+                    addToCartSlice({
+                      id: id,
+                      options: selectedColor,
+                      thumbImg: thumbUrl,
+                      name: name,
+                      qty: qty,
+                      size: selectedSize,
+                      price: price
+                    })
+                  )
                 }
               >
                 Add to Cart

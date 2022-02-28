@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ButtonLink} from "../Buttons/ButtonLink";
+import {ButtonLink} from "../buttons/ButtonLink";
 
 export const Hero = styled.div`
   display: flex;

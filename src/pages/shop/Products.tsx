@@ -6,7 +6,7 @@ import {
   accent,
 } from "../../rootStyledComponents";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
-import { ButtonLink } from "../../components/Buttons/ButtonLink";
+import { ButtonLink } from "../../components/buttons/ButtonLink";
 import { useState } from "react";
 import Modal from "./MyModal";
 

@@ -10,8 +10,10 @@ import { accent } from "../../rootStyledComponents";
 import Rating from "../../components/Rating";
 import SizeSelector from "./SizeSelector";
 import AddCartBar from "./AddCartBar";
-import {addToCart} from "../../utils/addToCart"
+import { addToCart } from "../../utils/addToCart";
 import Options from "./Options";
+import { useDispatch } from "react-redux";
+import { addToCartSlice } from "../../slices/cartSlice";
 
 interface BreadCrumbNameMap {
   [key: string]: any;
@@ -23,18 +25,17 @@ interface ImgsProps {
   original?: string;
 }
 
-
 export const sizeMap = [...Array(11)].map((_el, index: number) => {
   return 36 + index;
 });
 
 export default () => {
+  const dispatch = useDispatch();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [colorSelected, setColorSelected] = useState<string>();
-  const [qty, setQty] = useState<any>(1);
+  const [qty, setQty] = useState<number>(1);
   const [selectedSize, setSelectedSize] = useState(sizeMap[0]);
   const [qtyPrice, setQtyPrice] = useState<number>();
-
   const { id } = useParams();
   const location = useLocation();
   const { data, isLoading, error } = useGetProductQuery(id);
@@ -90,8 +91,7 @@ export default () => {
     if (qty == 1) return;
     setQty(qty - 1);
   };
-
-
+  console.log(product)
   return (
     <>
       {data && (
@@ -165,21 +165,30 @@ export default () => {
                   <Rating className="rating" />
                   <div className="count">14 reviews</div>
                 </div>
-                <Options colorSelected={colorSelected} colorway={colorway} handleChange={setColorSelected} />
+                <Options
+                  colorSelected={colorSelected}
+                  colorway={colorway}
+                  handleChange={setColorSelected}
+                />
                 <SizeSelector
                   selectedSize={selectedSize}
                   onClick={clickSetSize}
                   sizeMap={sizeMap}
                 />
                 <AddCartBar
-                linkDisabled={false}
+                  linkDisabled={false}
                   addToCart={() =>
-                    addToCart({
-                      id: product?.id,
-                      options: colorSelected,
-                      qty: qty,
-                      size: selectedSize,
-                    })
+                    dispatch(
+                      addToCartSlice({
+                        id: product?.id,
+                        thumbImg: images.thumbUrl ,
+                        name: product?.name, 
+                        options: colorSelected,
+                        qty: qty,
+                        size: selectedSize,
+                        price: price
+                      })
+                    )
                   }
                   qty={qty}
                   clickDecrement={clickDecrement}
@@ -243,7 +252,6 @@ export const ProductHolder = styled.div`
     }
   }
 `;
-
 
 const Wrapper = styled.div`
   overflow-x: hidden;

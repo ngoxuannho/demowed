@@ -1,22 +1,27 @@
 import { message } from "antd";
-interface CartProps {
-  id?: number;
+export interface iCart {
+  id: number;
   thumbImg?: string;
-  options?: string;
-  qty?: number;
-  size?: number;
+  options: string | undefined;
+  qty: number;
+  size: number;
   name?: string;
+  price: number;
 }
 
-export const addToCart = (product: CartProps) => {
+export const addToCart = (product: iCart) => {
   const cart = localStorage.getItem("cart");
   if (cart) {
     const parse = JSON.parse(cart);
-    if (parse.some((cartProduct: CartProps) => cartProduct.id === product.id)) {
+    const productAlreadyExisted = parse.some((cartProduct: iCart) => {
+      return cartProduct.id === product.id;
+    });
+    if (productAlreadyExisted) {
       const newParse = parse.filter(
-        (cartProduct: CartProps) => cartProduct.id !== product.id
+        (cartProduct: iCart) => cartProduct.id !== product.id
       );
-      localStorage.setItem("cart", JSON.stringify([...newParse, product]));
+      const updatedCart = [...newParse, product];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
       message.success("Cart updated");
       // if product exist update it
     } else {

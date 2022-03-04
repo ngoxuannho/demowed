@@ -1,18 +1,18 @@
 import { RootState } from "../../slices/rootReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { Drawer } from "antd";
+import { Drawer, message } from "antd";
 import { iCart } from "../../utils/addToCart";
 import CartDrawerItem from "./CartDrawerItem";
 import { delFromCartSlice } from "../../slices/cartSlice";
 import { List } from "antd";
 import FooterCartDrawer from "./FooterCartDrawer";
 
-interface iCartDrawer {
+export interface iDrawer {
   onClose: () => void;
   visible: boolean;
 }
 
-export default ({ onClose, visible }: iCartDrawer) => {
+export default ({ onClose, visible }: iDrawer) => {
   const { cart } = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
   return (
@@ -31,7 +31,9 @@ export default ({ onClose, visible }: iCartDrawer) => {
             <CartDrawerItem
               key={item.id}
               cartItem={item}
-              delProduct={() => dispatch(delFromCartSlice(item))}
+              delProduct={() => {
+                dispatch(delFromCartSlice(item));
+              }}
             />
           </List.Item>
         )}

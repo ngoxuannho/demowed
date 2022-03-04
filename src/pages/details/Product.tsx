@@ -91,13 +91,12 @@ export default () => {
     if (qty == 1) return;
     setQty(qty - 1);
   };
-  console.log(product)
   return (
     <>
       {data && (
         <Wrapper>
           <StyledBreadCrumb>{breadcrumbItems}</StyledBreadCrumb>
-          <Row gutter={[16, 16]}>
+          <Row gutter={[20, 16]}>
             <Col md={{ span: 12 }} sm={{ span: 24 }}>
               <StyledImageGallery
                 items={[
@@ -181,12 +180,13 @@ export default () => {
                     dispatch(
                       addToCartSlice({
                         id: product?.id,
-                        thumbImg: images.thumbUrl ,
-                        name: product?.name, 
+                        thumbImg: images.thumbUrl,
+                        name: product?.name,
                         options: colorSelected,
                         qty: qty,
                         size: selectedSize,
-                        price: price
+                        price: price,
+                        colorway: colorway,
                       })
                     )
                   }
@@ -203,10 +203,10 @@ export default () => {
   );
 };
 
-const StyledBreadCrumb = styled(Breadcrumb)`
+export const StyledBreadCrumb = styled(Breadcrumb)`
   margin-top: 8px;
   margin-bottom: 52px;
-  padding: 4px 4px;
+  padding: 4px 12px;
   background-color: #efefef;
 `;
 

@@ -31,4 +31,4 @@ export const sneakersApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useGetProductQuery } = sneakersApi;
+export const { useGetProductsQuery, useGetProductQuery, useLazyGetProductsQuery } = sneakersApi;

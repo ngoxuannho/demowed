@@ -1,9 +1,15 @@
 export const baseFontSize = "16px";
 export const accent = "#123026";
 export const height = `105px`;
-export const borderRadiusSmall = "5px"
+export const borderRadiusSmall = "5px";
 export const linkColor = "#2B2F3D";
 export const textColor = "#123026";
 export const lightGrey = "#efefef";
 export const selectedBlue = "#337ab7";
-export const offWhite = "#FAF9F6"
+export const offWhite = "#FAF9F6";
+export const darkGrey = "#545454";
+export const backgroundGrey = "#fafafa";
+export const coolBlack = "#323232";
+export const subText = "#717171";
+export const borderBlack = "1px rgba(0,0,0,0.1) solid;";
+export const btnGrey = "#c8c8c8"

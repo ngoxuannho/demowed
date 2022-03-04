@@ -29,7 +29,7 @@ export default ({
     <CartBarWrapper>
       <InputNumber qty={qty} clickIncrement={clickIncrement} clickDecrement={clickDecrement} />
       {!linkDisabled && (
-        <Link className="link" to={"/"}>
+        <Link className="link" to={"/cart"}>
           <StyledBtn
             onClick={addToCart}
             size="large"

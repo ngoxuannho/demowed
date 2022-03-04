@@ -1,4 +1,4 @@
-import { textColor } from './rootStyledComponents';
+import { textColor, borderBlack } from "./rootStyledComponents";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
@@ -63,6 +63,7 @@ export const GlobalStyled = createGlobalStyle`
 }
 #root {
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 a {
@@ -90,5 +91,14 @@ button {
 }
 p, span {
   color: ${textColor};
+}
+.pd-t-8 {
+  padding-top: 8px;
+}
+.mt-4 {
+  margin-top: 4px;
+}
+.mt-8 {
+  margin-top: 8px;
 }
 `;

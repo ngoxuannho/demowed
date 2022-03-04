@@ -13,16 +13,22 @@ import { Badge } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "../../slices/rootReducer";
 import { accent } from "../../rootStyledComponents";
+import InputDrawer from "../searchDrawer/InputDrawer";
 
 export default () => {
   const { cart } = useSelector((state: RootState) => state);
   const [visible, setVisible] = useState(false);
+  const [searchVisible, setSearchvisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
+  };
+  const showSearch = () => {
+    setSearchvisible(true);
   };
   const onClose = () => {
     setVisible(false);
   };
+  const closeSearch = () => setSearchvisible(false);
   return (
     <>
       <Header className="fg-reg d-flex align-items-center justify-content-between">
@@ -37,12 +43,13 @@ export default () => {
           <MainNavLinkHolders />
         </Nav>
         <HeaderIcons className="order-md-3 order-3  ">
+          <SearchOutlined className="search-icon" onClick={showSearch} />
           <UserOutlined />
-          <SearchOutlined />
-          <ShoppingOutlined onClick={showDrawer} />
           <Badge count={cart.length}>
-            <CartDrawer onClose={onClose} visible={visible} />
+            <ShoppingOutlined onClick={showDrawer} />
           </Badge>
+          <InputDrawer onClose={closeSearch} visible={searchVisible} />
+          <CartDrawer onClose={onClose} visible={visible} />
         </HeaderIcons>
       </Header>
     </>
@@ -73,16 +80,22 @@ const Header = styled.header`
 
 const HeaderIcons = styled.div`
   display: flex;
+  align-items: center;
   column-gap: 8px;
+  height: 100%;
+  .search-icon {
+    cursor: pointer;
+  }
   svg {
     display: block;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     font-size: 1.5em;
   }
   @media (max-width: 768px) {
-    & > *:first-of-type {
+    & > *:first-of-type + * {
       display: none;
+      // hide icon "user"
     }
   }
 `;

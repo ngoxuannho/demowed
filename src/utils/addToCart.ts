@@ -2,11 +2,12 @@ import { message } from "antd";
 export interface iCart {
   id: number;
   thumbImg?: string;
-  options: string | undefined;
+  options: string;
   qty: number;
   size: number;
-  name?: string;
+  name: string;
   price: number;
+  colorway: string[],
 }
 
 export const addToCart = (product: iCart) => {

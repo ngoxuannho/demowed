@@ -3,43 +3,33 @@ import { Menu, Dropdown, message } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { MouseEventHandler } from "react";
+import { useSearchParams } from "react-router-dom";
+import FilterMenu from "./FilterMenu";
 
-const onClick = ({ key }: { key: any }) => {
-  message.info(`Filter ${key}`);
-};
-
-const FilterBar = styled.div`
-  margin: 32px 0;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  column-gap: 16px;
-
-  & > span {
-    font-size: 1.3em;
-    cursor: pointer;
-  }
-
-  .text {
-      font-weight: 200;
-  }
-
-`;
-
-const menu = (
-  <Menu onClick={onClick}>
-    <Menu.Item key="Default">Filter</Menu.Item>
-    <Menu.Item key="A-Z">Name: A-Z</Menu.Item>
-    <Menu.Item key="Z-A">Name: Z-A</Menu.Item>
-    <Menu.Item key="High-Low">Price: High-Low</Menu.Item>
-    <Menu.Item key="Low-High">Price: Low-High</Menu.Item>
-    <Menu.Item key="Latest">Release: New-Old</Menu.Item>
-    <Menu.Item key="Oldest">Release: Old-New</Menu.Item>
-  </Menu>
-);
-
-export default ({selectBlockLayout, selectListLayout} : {selectBlockLayout: MouseEventHandler<HTMLSpanElement>,
-    selectListLayout: MouseEventHandler<HTMLSpanElement>}) => {
+export default ({
+  selectBlockLayout,
+  selectListLayout,
+}: {
+  selectBlockLayout: MouseEventHandler<HTMLSpanElement>;
+  selectListLayout: MouseEventHandler<HTMLSpanElement>;
+}) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const onClick = ({ key }: { key: string }) => {
+    message.info(`Filter ${key}`);
+    const allSearchParams = Object.fromEntries([...searchParams]);
+    setSearchParams({...allSearchParams,sort: key.toLowerCase()});
+  };
+  const menu = (
+    <Menu onClick={onClick}>
+      <Menu.Item key="Default">Filter</Menu.Item>
+      <Menu.Item key="A-Z">Name: A-Z</Menu.Item>
+      <Menu.Item key="Z-A">Name: Z-A</Menu.Item>
+      <Menu.Item key="High-Low">Price: High-Low</Menu.Item>
+      <Menu.Item key="Low-High">Price: Low-High</Menu.Item>
+      <Menu.Item key="Latest">Release: New-Old</Menu.Item>
+      <Menu.Item key="Oldest">Release: Old-New</Menu.Item>
+    </Menu>
+  )
   return (
     <FilterBar>
       <AppstoreFilled onClick={selectBlockLayout} />
@@ -55,3 +45,20 @@ export default ({selectBlockLayout, selectListLayout} : {selectBlockLayout: Mous
     </FilterBar>
   );
 };
+
+const FilterBar = styled.div`
+  margin: 32px 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  column-gap: 16px;
+
+  & > span {
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+
+  .text {
+    font-weight: 200;
+  }
+`;

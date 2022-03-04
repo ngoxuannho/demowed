@@ -2,7 +2,7 @@ import { iCart } from "../../utils/addToCart";
 import { Row, Col } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import InputNumber from "../InputNumber";
 import { accent } from "../../rootStyledComponents";
 import { useDispatch } from "react-redux";
@@ -17,9 +17,13 @@ export default ({ cartItem, delProduct }: iCartDrawerItem) => {
   const [qty, setQty] = useState<number>(cartItem.qty);
   const [price, setPrice] = useState<number>(cartItem.price * qty);
   const dispatch = useDispatch();
-  useEffect(() => {
+  useMemo(() => {
     setPrice(qty * cartItem.price);
   }, [qty]);
+  useEffect(() => {
+    setQty(cartItem.qty);
+    setPrice(cartItem.price * qty);
+  }, [cartItem]);
   const clickIncrement = (): void => {
     if (qty > 9) return;
     const updateQty = { ...cartItem, qty: qty + 1 };
@@ -32,6 +36,7 @@ export default ({ cartItem, delProduct }: iCartDrawerItem) => {
     setQty(qty - 1);
     dispatch(addToCartSlice(updateQty));
   };
+  console.log(cartItem);
   return (
     <Wrapper gutter={16} align={"middle"}>
       <Col className="thumbImgHolder" span={6}>

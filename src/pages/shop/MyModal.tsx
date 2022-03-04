@@ -7,7 +7,7 @@ import addCartBar from "../details/AddCartBar";
 import { ProductHolder, sizeMap } from "../details/Product";
 import Options from "../details/Options";
 import AddCartBar from "../details/AddCartBar";
-import { addToCart } from "../../utils/addToCart";
+import { addToCart, iCart } from "../../utils/addToCart";
 import { StyledBtn } from "../details/AddCartBar";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { addToCartSlice } from "../../slices/cartSlice";
@@ -40,6 +40,16 @@ export default ({
   const [qty, setQty] = useState(1);
   const [priceQty, setPriceQty] = useState(price);
   const dispatch = useDispatch();
+  const { cart } = useSelector((state: RootState) => state);
+  useEffect(() => {
+    const index = cart.findIndex((item: iCart) => item.id == id);
+    if (index >= 0) {
+      const item = cart[index];
+      setSelectedSize(item.size);
+      setSelectedColor(item.options);
+      setQty(item.qty);
+    }
+  }, [cart]);
   useEffect(() => {
     setPriceQty(qty * price);
   }, [qty]);
@@ -138,7 +148,8 @@ export default ({
                       name: name,
                       qty: qty,
                       size: selectedSize,
-                      price: price
+                      price: price,
+                      colorway: colorway,
                     })
                   )
                 }

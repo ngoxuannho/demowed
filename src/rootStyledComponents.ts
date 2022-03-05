@@ -12,4 +12,5 @@ export const backgroundGrey = "#fafafa";
 export const coolBlack = "#323232";
 export const subText = "#717171";
 export const borderBlack = "1px rgba(0,0,0,0.1) solid;";
-export const btnGrey = "#c8c8c8"
+export const btnGrey = "#c8c8c8";
+export const secondaryTxt = "#686363"

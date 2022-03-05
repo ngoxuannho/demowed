@@ -36,7 +36,6 @@ export default ({ cartItem, delProduct }: iCartDrawerItem) => {
     setQty(qty - 1);
     dispatch(addToCartSlice(updateQty));
   };
-  console.log(cartItem);
   return (
     <Wrapper gutter={16} align={"middle"}>
       <Col className="thumbImgHolder" span={6}>

@@ -1,6 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Breadcrumb, Col, Row } from "antd";
+import { Breadcrumb, Col, Row, Skeleton, Spin } from "antd";
 import { useGetProductQuery } from "../../slices/sneakersApi";
 import styled from "styled-components";
 import ImageGallery from "react-image-gallery";
@@ -10,10 +10,10 @@ import { accent } from "../../rootStyledComponents";
 import Rating from "../../components/Rating";
 import SizeSelector from "./SizeSelector";
 import AddCartBar from "./AddCartBar";
-import { addToCart } from "../../utils/addToCart";
 import Options from "./Options";
 import { useDispatch } from "react-redux";
 import { addToCartSlice } from "../../slices/cartSlice";
+import { ResultAntd } from "../../components/Result";
 
 interface BreadCrumbNameMap {
   [key: string]: any;
@@ -32,7 +32,7 @@ export const sizeMap = [...Array(11)].map((_el, index: number) => {
 export default () => {
   const dispatch = useDispatch();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [colorSelected, setColorSelected] = useState<string>();
+  const [colorSelected, setColorSelected] = useState<string>("");
   const [qty, setQty] = useState<number>(1);
   const [selectedSize, setSelectedSize] = useState(sizeMap[0]);
   const [qtyPrice, setQtyPrice] = useState<number>();
@@ -91,112 +91,118 @@ export default () => {
     if (qty == 1) return;
     setQty(qty - 1);
   };
+  console.log(error);
   return (
     <>
-      {data && (
+      {error ? (
+        <ResultAntd />
+      ) : (
         <Wrapper>
           <StyledBreadCrumb>{breadcrumbItems}</StyledBreadCrumb>
-          <Row gutter={[20, 16]}>
-            <Col md={{ span: 12 }} sm={{ span: 24 }}>
-              <StyledImageGallery
-                items={[
-                  {
-                    original: images?.imageUrl,
-                    thumbnail: images?.thumbUrl,
-                  },
-                  {
-                    original:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_1280x.jpg?v=1636413353",
-                    thumbnail:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_200x.jpg?v=1636413353",
-                  },
-                  {
-                    thumbnail:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_200x.jpg?v=1636589360",
-                    original:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_1280x.jpg?v=1636589360",
-                  },
-                  {
-                    thumbnail:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_200x.jpg?v=1636413353",
-                    original:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_1280x.jpg?v=1636413353",
-                  },
-                  {
-                    thumbnail:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_200x.jpg?v=1636413353",
-                    original:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_1280x.jpg?v=1636413353",
-                  },
-                  {
-                    thumbnail:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_200x.jpg?v=1636413352",
-                    original:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_1280x.jpg?v=1636413352",
-                  },
-                  {
-                    thumbnail:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_200x.jpg?v=1636413353",
-                    original:
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_1280x.jpg?v=1636413353",
-                  },
-                ]}
-                thumbnailPosition={isSmallScreen ? "bottom" : "left"}
-                showFullscreenButton={false}
-                showPlayButton={false}
-                showNav={false}
-              />
-            </Col>
-            <Col md={{ span: 12 }} sm={{ span: 24 }}>
-              <ProductHolder>
-                <div className="title">{productName}</div>
-                <div className="price">$ {qtyPrice}</div>
-                <div className="description">
-                  It's our bestselling boot - but upgraded. Be anywhere and do
-                  anything, in a boot that does it all. The Z is made with a
-                  water resistant upper, extra warm lining and grippy rubber
-                  sole. Featuring an inside zip that makes it easy to slip them
-                  on-and-off for life on the go. And the best part - each pair
-                  is 100% vegan and made with 95% natural and recycled
-                  materials.
-                </div>
-                <div className="review">
-                  <Rating className="rating" />
-                  <div className="count">14 reviews</div>
-                </div>
-                <Options
-                  colorSelected={colorSelected}
-                  colorway={colorway}
-                  handleChange={setColorSelected}
+          <MySpin spinning={isLoading}>
+            {" "}
+            <Row gutter={[20, 16]}>
+              <Col md={{ span: 12 }} sm={{ span: 24 }}>
+                <StyledImageGallery
+                  items={[
+                    {
+                      original: images?.imageUrl,
+                      thumbnail: images?.thumbUrl,
+                    },
+                    {
+                      original:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_1280x.jpg?v=1636413353",
+                      thumbnail:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_200x.jpg?v=1636413353",
+                    },
+                    {
+                      thumbnail:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_200x.jpg?v=1636589360",
+                      original:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_1280x.jpg?v=1636589360",
+                    },
+                    {
+                      thumbnail:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_200x.jpg?v=1636413353",
+                      original:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_1280x.jpg?v=1636413353",
+                    },
+                    {
+                      thumbnail:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_200x.jpg?v=1636413353",
+                      original:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_1280x.jpg?v=1636413353",
+                    },
+                    {
+                      thumbnail:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_200x.jpg?v=1636413352",
+                      original:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_1280x.jpg?v=1636413352",
+                    },
+                    {
+                      thumbnail:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_200x.jpg?v=1636413353",
+                      original:
+                        "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_1280x.jpg?v=1636413353",
+                    },
+                  ]}
+                  thumbnailPosition={isSmallScreen ? "bottom" : "left"}
+                  showFullscreenButton={false}
+                  showPlayButton={false}
+                  showNav={false}
                 />
-                <SizeSelector
-                  selectedSize={selectedSize}
-                  onClick={clickSetSize}
-                  sizeMap={sizeMap}
-                />
-                <AddCartBar
-                  linkDisabled={false}
-                  addToCart={() =>
-                    dispatch(
-                      addToCartSlice({
-                        id: product?.id,
-                        thumbImg: images.thumbUrl,
-                        name: product?.name,
-                        options: colorSelected,
-                        qty: qty,
-                        size: selectedSize,
-                        price: price,
-                        colorway: colorway,
-                      })
-                    )
-                  }
-                  qty={qty}
-                  clickDecrement={clickDecrement}
-                  clickIncrement={clickIncrement}
-                />
-              </ProductHolder>
-            </Col>
-          </Row>
+              </Col>
+              <Col md={{ span: 12 }} sm={{ span: 24 }}>
+                <ProductHolder>
+                  <div className="title">{productName}</div>
+                  <div className="price">$ {qtyPrice}</div>
+                  <div className="description">
+                    It's our bestselling boot - but upgraded. Be anywhere and do
+                    anything, in a boot that does it all. The Z is made with a
+                    water resistant upper, extra warm lining and grippy rubber
+                    sole. Featuring an inside zip that makes it easy to slip
+                    them on-and-off for life on the go. And the best part - each
+                    pair is 100% vegan and made with 95% natural and recycled
+                    materials.
+                  </div>
+                  <div className="review">
+                    <Rating className="rating" />
+                    <div className="count">14 reviews</div>
+                  </div>
+                  <Options
+                    colorSelected={colorSelected}
+                    colorway={colorway}
+                    handleChange={setColorSelected}
+                  />
+                  <SizeSelector
+                    selectedSize={selectedSize}
+                    onClick={clickSetSize}
+                    sizeMap={sizeMap}
+                  />
+                  <AddCartBar
+                    linkDisabled={false}
+                    addToCart={() =>
+                      dispatch(
+                        addToCartSlice({
+                          id: product?.id,
+                          thumbImg: images.thumbUrl,
+                          name: product?.name,
+                          options: colorSelected,
+                          qty: qty,
+                          size: selectedSize,
+                          price: price,
+                          colorway: colorway,
+                        })
+                      )
+                    }
+                    qty={qty}
+                    clickDecrement={clickDecrement}
+                    clickIncrement={clickIncrement}
+                  />
+                </ProductHolder>
+              </Col>
+            </Row>
+          </MySpin>
         </Wrapper>
       )}
     </>
@@ -255,4 +261,9 @@ export const ProductHolder = styled.div`
 
 const Wrapper = styled.div`
   overflow-x: hidden;
+  margin-bottom: 52px;
+`;
+
+const MySpin = styled(Spin)`
+  height: 100vh;
 `;

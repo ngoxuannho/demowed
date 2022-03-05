@@ -1,21 +1,24 @@
 import { Container } from "react-bootstrap";
 import BreadcrumbCart from "./BreadcrumbCart";
-import { PageHeader, Dropdown, Menu, List } from "antd";
+import { PageHeader, Dropdown, Menu, List, Button } from "antd";
 import { ButtonLink } from "../../components/buttons/ButtonLink";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../slices/rootReducer";
 import { iCart } from "../../utils/addToCart";
 import { DeleteOutlined } from "@ant-design/icons";
 import CartItem from "./CartItem";
 import FooterCart from "./FooterCart";
+import { delAll } from "../../slices/cartSlice";
 
 export default () => {
   const { cart } = useSelector((state: RootState) => state);
+  const dispatch = useDispatch();
   const totalPrice = cart.reduce(
     (accumulator, current) => accumulator + current.price * current.qty,
     0
   );
+
   return (
     <>
       <BreadcrumbCart />
@@ -24,7 +27,7 @@ export default () => {
           className="cart-header"
           onBack={() => window.history.back()}
           title="Your Cart"
-          extra={<BtnLink to={"/checkout"}>Check Out</BtnLink>}
+          extra={<><BtnLink as={Button} size="large"  shape="round" type="text" danger onClick={() => dispatch(delAll())}>Clear cart</BtnLink><BtnLink to={"/checkout"}>Check Out</BtnLink></>}
           footer={<FooterCart totalPrice={totalPrice} />}
         >
           <List
@@ -43,7 +46,7 @@ export default () => {
 };
 
 const BtnLink = styled(ButtonLink)`
-  padding: 6px 40px;
+  padding: 6px 40px !important;
 `;
 const Holder = styled(Container)`
   .ant-page-header-heading-title {

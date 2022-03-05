@@ -45,13 +45,13 @@ export default ({ className }: {className: string}) => {
     <Title to={"shop/featured"}>Featured</Title>
     <List>
       <Item>
-        <NavLink to={"shop/best"} >Best Seller</NavLink>
+        <NavLink to={"#"} >Best Seller</NavLink>
       </Item>
       <Item>
-        <NavLink to={"shop/new"} >New In</NavLink>
+        <NavLink to={"#"} >New In</NavLink>
       </Item>
       <Item>
-        <NavLink to={"shop/back-in-stock"} >Back in Stock</NavLink>
+        <NavLink to={"#"} >Back in Stock</NavLink>
       </Item>
     </List>
   </Col>

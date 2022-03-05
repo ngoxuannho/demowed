@@ -5,7 +5,7 @@ import { baseFontSize, accent } from "../../rootStyledComponents";
 import { useRef, useState, useEffect } from "react";
 import { NavLink } from "./FeaturedList";
 import { Link } from "react-router-dom";
-import { EllipsisOutlined, HomeFilled, PlusOutlined } from "@ant-design/icons";
+import { DownOutlined, EllipsisOutlined, HomeFilled, PlusOutlined } from "@ant-design/icons";
 
 const MainNavLink = styled(Link)`
   font-size: ${baseFontSize};
@@ -18,6 +18,9 @@ const MainNavLink = styled(Link)`
   }
   @media (max-width: 768px) {
     padding: 1rem 0.5rem;
+  }
+  &.values{
+    cursor: not-allowed ;
   }
 `;
 
@@ -182,7 +185,7 @@ export default () => {
           <>
             <WrapperDropD>
               <Title to={"shop/featured"}>Featured</Title>
-              <Icon onClick={toggle} />
+              <DownOutlined as={Icon} onClick={toggle} />
             </WrapperDropD>
             <List ref={activeRef}>
               <Item>
@@ -197,7 +200,7 @@ export default () => {
             </List>
           </>
         )}
-        <MainNavLink to={"values"}>Values</MainNavLink>
+        <MainNavLink className="values" to={"#"}>Values</MainNavLink>
         <SubHeaderStyled />
       </MainNavLinks>
     </>

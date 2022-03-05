@@ -7,7 +7,7 @@ import addCartBar from "../details/AddCartBar";
 import { ProductHolder, sizeMap } from "../details/Product";
 import Options from "../details/Options";
 import AddCartBar from "../details/AddCartBar";
-import { addToCart, iCart } from "../../utils/addToCart";
+import {  iCart } from "../../utils/addToCart";
 import { StyledBtn } from "../details/AddCartBar";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { addToCartSlice } from "../../slices/cartSlice";
@@ -117,7 +117,7 @@ export default ({
         <Col md={{ span: 12 }} sm={{ span: 24 }}>
           <ProductHolder>
             <div className="title">{name}</div>
-            <div className="price">$ {priceQty}</div>
+            <div className="price">$ {price}</div>
             <Options
               colorway={colorway}
               colorSelected={selectedColor}

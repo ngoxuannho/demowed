@@ -30,9 +30,14 @@ export const SubHeader = styled.div`
   max-height: 70vh;
   overflow: auto;
   padding: 1.5rem 1rem;
-  top: 80%;
+  top: 99%;
   opacity: 0;
   pointer-events: none;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  z-index: 10 !important;
+
   :hover {
     transform: translateX(0%) translateY(-0%);
     opacity: 1;
@@ -54,7 +59,7 @@ const Col = styled(ColBs)`
   }
 `;
 
-export default ({ className } : {className: any}) => {
+export default ({ className }: { className: any }) => {
   return (
     <SubHeader className={className}>
       <Row>
@@ -65,17 +70,17 @@ export default ({ className } : {className: any}) => {
             <Col sm={2}>
               <ul>
                 <li>
-                  <NavLink to={"shop/adidas"}>Adidas</NavLink>
+                  <NavLink to={"shop/?search=adidas"}>Adidas</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"shop/nike"}>Nike</NavLink>
+                  <NavLink to={"shop/?search=nike"}>Nike</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"shop/converse"}>Converse</NavLink>
+                  <NavLink to={"shop/?search=converse"}>Converse</NavLink>
                 </li>
               </ul>
             </Col>
-            <Col sm={2} lg={4}>
+            {/* <Col sm={2} lg={4}>
               <ul>
                 <li>
                   <NavLink to={"shop/drmartin"}>Dr.Martin</NavLink>
@@ -87,7 +92,7 @@ export default ({ className } : {className: any}) => {
                   <NavLink to={"shop/kobiet"}>Khong biet</NavLink>
                 </li>
               </ul>
-            </Col>
+            </Col> */}
           </Row>
         </Col>
       </Row>

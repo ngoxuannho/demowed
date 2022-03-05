@@ -56,10 +56,10 @@ export default () => {
   );
 };
 
-const logoUrl =
+export const logoUrl =
   "https://cdn.shopify.com/s/files/1/0665/2889/files/Thesus_A_W_Wordmark_Forest_Green_2cca776c-1727-4416-868a-fa72e7359f08.png?v=1635783797";
 
-const Logo = styled.img`
+export const Logo = styled.img`
   max-width: min(195px, 100%);
   width: 100%;
   height: 100%;

@@ -1,10 +1,6 @@
 import { message } from "antd";
-import { RootState } from "./rootReducer";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { iCart } from "../utils/addToCart";
-import Item from "antd/lib/list/Item";
-import Product from "../pages/details/Product";
-
 const initialState: iCart[] = [];
 
 const cartSlice = createSlice({
@@ -46,8 +42,9 @@ const cartSlice = createSlice({
       message.error("Deleted");
       return cart.filter((item: iCart) => item.id !== payload.id);
     },
+    delAll: () => [],
   },
 });
 
-export const { addToCartSlice, delFromCartSlice } = cartSlice.actions;
+export const { addToCartSlice, delFromCartSlice, delAll } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;

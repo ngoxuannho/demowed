@@ -27,7 +27,11 @@ export default ({
 }) => {
   return (
     <CartBarWrapper>
-      <InputNumber qty={qty} clickIncrement={clickIncrement} clickDecrement={clickDecrement} />
+      <InputNumber
+        qty={qty}
+        clickIncrement={clickIncrement}
+        clickDecrement={clickDecrement}
+      />
       {!linkDisabled && (
         <Link className="link" to={"/cart"}>
           <StyledBtn
@@ -54,6 +58,11 @@ const StyledInputNumber = styled(InputNumber)`
   input {
     text-align: center;
     width: 100%;
+  }
+  @media (max-width: 768px) {
+    input {
+      width: 100vw;
+    }
   }
 `;
 

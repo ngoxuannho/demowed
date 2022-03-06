@@ -25,7 +25,7 @@ export default () => {
   ].concat(extraBreadcrumbItems);
   return (
     <Container >
-      <Col lg={12} md={24}>
+      <Col lg={12} md={24} sm={24} xs={24}>
         <Link to="/" className="ps-3">
           <Logo src={logoUrl} alt="the sus" />
         </Link>

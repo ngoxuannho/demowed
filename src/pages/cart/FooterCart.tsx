@@ -7,8 +7,8 @@ export default ({ totalPrice }: { totalPrice: number }) => {
   return (
     <Wrapper>
       <Col sm={24} lg={12}>
-        <Button shape="round" type="text" size="large">
-          <StyledLink to="/shop">
+        <Button className="mb-3" shape="round" type="text" size="large">
+          <StyledLink  to="/shop">
             <span>Continue Shopping</span>
           </StyledLink>
         </Button>

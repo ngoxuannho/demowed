@@ -40,7 +40,7 @@ export default ({ item }: { item: iCart }) => {
   return (
     <>
       <Wrapper>
-        <Col lg={6} className="product-left d-flex">
+        <Col lg={6} md={12} sm={12} xs={12} className="product-left d-flex">
           <div className="img-wrapper">
             <img src={item.thumbImg} alt={item.name} />
           </div>
@@ -73,17 +73,17 @@ export default ({ item }: { item: iCart }) => {
             </Dropdown>
           </Info>
         </Col>
-        <Col lg={6} className="retail-price price d-flex">
+        <Col lg={6} md={12} sm={12} xs={12} className="retail-price price d-flex">
           <span>$ {item.price}</span>
         </Col>
-        <Col lg={6} className="inputNumber">
+        <Col lg={6} md={12} sm={12} xs={12} className="inputNumber">
           <StyledInputNumber
             qty={item.qty}
             clickDecrement={clickDecrement}
             clickIncrement={clickIncrement}
           />
         </Col>
-        <Col lg={6} className="total-price price">
+        <Col lg={6} md={12} sm={12} xs={12} className="total-price price">
           $ {item.price * item.qty}
         </Col>
       </Wrapper>

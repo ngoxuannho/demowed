@@ -11,7 +11,7 @@ import { useState } from "react";
 import Modal from "./MyModal";
 
 interface ProductsProps {
-  id:number,
+  id: number;
   to: string;
   img: string;
   imgSecondary: string;
@@ -34,7 +34,7 @@ export const Products = ({
 }: ProductsProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const showModal = () => {
-     setIsModalVisible(true);
+    setIsModalVisible(true);
   };
   const handleOk = () => {
     setIsModalVisible(false);
@@ -90,7 +90,7 @@ export const Products = ({
               price={price}
               imgUrl={imgSecondary}
               thumbUrl={imgSecondary}
-              colorway = {colorway}
+              colorway={colorway}
               id={id}
             />
           </div>
@@ -115,6 +115,9 @@ const CardHolder = styled.div`
   }
   :hover .card-button {
     opacity: 1;
+  }
+  @media (max-width: 768px) {
+    padding: 0 48px ;
   }
 `;
 
@@ -168,6 +171,7 @@ const CardImgRatio = styled.div`
   position: relative;
   border-radius: 0px;
   overflow: hidden;
+
 `;
 const CardImg = styled.div`
   position: absolute;

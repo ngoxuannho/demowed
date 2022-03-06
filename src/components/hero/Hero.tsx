@@ -68,7 +68,7 @@ export default ({ img, text, header, className }: HeroProps) => {
           <Header>{header}</Header>
         </SectionHeading>
         <div className="d-flex btn justify-content-center">
-          <HeroBtn to={"/"}>Shop Now</HeroBtn>
+          <HeroBtn to={"/shop"}>Shop Now</HeroBtn>
         </div>
       </Wrapper>
     </Hero>

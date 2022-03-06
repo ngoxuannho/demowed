@@ -1,21 +1,25 @@
 import styled from "styled-components";
-import { Row, Col, List, Badge,Input, Button } from "antd"; 
+import { Row, Col, List, Badge, Input, Button } from "antd";
 import FloatingLabel from "../../components/floatingLabel/FloatingLabel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../slices/rootReducer";
 import { iCart } from "../../utils/addToCart";
 import { useState, useEffect, useRef } from "react";
-import { borderBlack, coolBlack, backgroundGrey, btnGrey } from "../../rootStyledComponents";
+import {
+  borderBlack,
+  coolBlack,
+  backgroundGrey,
+  btnGrey,
+} from "../../rootStyledComponents";
 
 const shipping = 3;
 
-
 export default () => {
-const {cart} = useSelector((state:RootState) => state);
-const [couponValue, setCouponValue] = useState<string | undefined>();
-const imgRef = useRef<any>(null);
-const [imgWidth, setImgWidth] = useState(imgRef.current?.offsetWidth);
-useEffect(() => {
+  const { cart } = useSelector((state: RootState) => state);
+  const [couponValue, setCouponValue] = useState<string | undefined>();
+  const imgRef = useRef<any>(null);
+  const [imgWidth, setImgWidth] = useState(imgRef.current?.offsetWidth);
+  useEffect(() => {
     setTimeout(() => {
       setImgWidth(imgRef.current?.offsetWidth);
     }, 100);
@@ -31,61 +35,64 @@ useEffect(() => {
     (accumulator, current) => accumulator + current.price * current.qty,
     0
   );
- return (<BackgroundWrapper lg={12} md={24}>
-    <CartItemHolder lg={15}>
-      <List
-        itemLayout="horizontal"
-        dataSource={cart}
-        renderItem={(item: iCart) => (
-          <List.Item>
-            <Row align="middle" gutter={[24, 0]}>
-              <ImgWrapper imgWidth={imgWidth} ref={imgRef} lg={3}>
-                <Badge size="small" count={item.qty}>
-                  <img src={item.thumbImg} alt={item.name} />
-                </Badge>
-              </ImgWrapper>
-              <Col className="name-holder" span={18}>
-                <div className="name main-txt">{item.name}</div>
-                <div className="size sub-txt">{item.size}</div>
-              </Col>
-              <Col lg={3} className="price main-txt">
-                $ {item.qty * item.price}
-              </Col>
-            </Row>
-          </List.Item>
-        )}
-      />
-      <Coupon>
-        <FloatingLabel label="Gift card or discount code" value={couponValue}>
-          <Input
-            value={couponValue}
-            onChange={(e) => setCouponValue(e.target.value)}
-            className="input"
-          />
-        </FloatingLabel>
-        <Button className="btn bd-rad-8" size="large">
-          Apply
-        </Button>
-      </Coupon>
-      <Subtotal className="main-txt">
-        <div className="subtotal">
-          <span className="sub-txt">Subtotal</span>
-          <span>$ {total}</span>
-        </div>
-        <div className="shipping">
-          <span className="sub-txt">Shipping</span>
-          <span>$ {shipping}</span>
-        </div>
-      </Subtotal>
-      <Total>
-        <div className="total main-txt">Total</div>
-        <div className="total-value">
-          <span className="prefix sub-txt">USD</span>
-          <span className="value">${total + shipping}</span>
-        </div>
-      </Total>
-    </CartItemHolder>
-  </BackgroundWrapper>)
+  return (
+    <BackgroundWrapper lg={12} md={24} sm={24} xs={24}>
+      <CartItemHolder lg={15}>
+        <List
+          itemLayout="horizontal"
+          dataSource={cart}
+          renderItem={(item: iCart) => (
+            <List.Item>
+              <Row align="middle" gutter={[24, 0]}>
+                <ImgWrapper imgWidth={imgWidth} ref={imgRef} lg={3}>
+                  <Badge size="small" count={item.qty}>
+                    <img src={item.thumbImg} alt={item.name} />
+                  </Badge>
+                </ImgWrapper>
+                <Col className="name-holder" span={18}>
+                  <div className="name main-txt">{item.name}</div>
+                  <div className="size sub-txt">{item.size}</div>
+                  <div className="color sub-txt">{item.options}</div>
+                </Col>
+                <Col lg={3} className="price main-txt">
+                  $ {item.qty * item.price}
+                </Col>
+              </Row>
+            </List.Item>
+          )}
+        />
+        <Coupon>
+          <FloatingLabel label="Gift card or discount code" value={couponValue}>
+            <Input
+              value={couponValue}
+              onChange={(e) => setCouponValue(e.target.value)}
+              className="input"
+            />
+          </FloatingLabel>
+          <Button className="btn bd-rad-8" size="large">
+            Apply
+          </Button>
+        </Coupon>
+        <Subtotal className="main-txt">
+          <div className="subtotal">
+            <span className="sub-txt">Subtotal</span>
+            <span>$ {total}</span>
+          </div>
+          <div className="shipping">
+            <span className="sub-txt">Shipping</span>
+            <span>$ {shipping}</span>
+          </div>
+        </Subtotal>
+        <Total>
+          <div className="total main-txt">Total</div>
+          <div className="total-value">
+            <span className="prefix sub-txt">USD</span>
+            <span className="value">${total + shipping}</span>
+          </div>
+        </Total>
+      </CartItemHolder>
+    </BackgroundWrapper>
+  );
 };
 
 const Total = styled.div`
@@ -161,8 +168,21 @@ const Coupon = styled.div`
 const CartItemHolder = styled(Col)`
   padding-top: 92px;
   padding-left: 44px;
+  padding-right: 44px;
   background-color: inherit;
   padding-bottom: 8px;
+  .ant-list-item {
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .name-holder {
+    @media (max-width: 768px) {
+      margin-top: 20px;
+    }
+  }
   > :first-child {
     border-bottom: ${borderBlack};
     border-width: 2px;

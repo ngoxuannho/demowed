@@ -13,10 +13,9 @@ import Product from "./pages/details/Product";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./slices/index";
 import Cart from "./pages/cart/Cart";
-import Checkout from "./pages/checkout/dontneed";
 import Result from "./pages/checkout/result/Result";
 import LayoutCheckOut from "./pages/checkout/LayoutCheckOut";
-import Test from "./pages/checkout/Checkout";
+import Checkout from "./pages/checkout/Checkout";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -32,7 +31,7 @@ ReactDOM.render(
               <Route path="/cart" element={<Cart />}></Route>
             </Route>
             <Route path="/checkout" element={<LayoutCheckOut />}>
-              <Route index element={<Test />}/>
+              <Route index element={<Checkout />}/>
               <Route path="/checkout/order-info" element={<Result/>} />
             </Route>
           </Routes>

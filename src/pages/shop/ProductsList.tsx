@@ -47,7 +47,7 @@ export const ProductsList = () => {
   }, [sortOrder]);
   console.log(isLoading);
   return (
-    <Container>
+    <Container className="mb-5">
       <FilterBar
         selectBlockLayout={() => setListLayout(false)}
         selectListLayout={() => setListLayout(true)}

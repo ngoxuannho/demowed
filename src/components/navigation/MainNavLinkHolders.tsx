@@ -184,18 +184,18 @@ export default () => {
         {displayDropdowns && (
           <>
             <WrapperDropD>
-              <Title to={"shop/featured"}>Featured</Title>
+              <Title to={"#"}>Featured</Title>
               <DownOutlined as={Icon} onClick={toggle} />
             </WrapperDropD>
             <List ref={activeRef}>
               <Item>
-                <NavLink to={"shop/best"}>Best Seller</NavLink>
+                <NavLink to={"#"}>Best Seller</NavLink>
               </Item>
               <Item>
-                <NavLink to={"shop/new"}>New In</NavLink>
+                <NavLink to={"#"}>New In</NavLink>
               </Item>
               <Item>
-                <NavLink to={"shop/back-in-stock"}>Back In Stock</NavLink>
+                <NavLink to={"#"}>Back In Stock</NavLink>
               </Item>
             </List>
           </>

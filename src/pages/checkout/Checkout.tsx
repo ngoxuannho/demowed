@@ -12,6 +12,7 @@ import {
 } from "antd";
 import { useNavigate } from "react-router-dom";
 import { addToUser } from "../../slices/userSlice";
+import styled from "styled-components";
 
 const formItemLayout = {
   labelCol: {
@@ -217,10 +218,16 @@ export default () => {
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit">
+        <SubmitButton style={{color: "white !important"}} type="primary" htmlType="submit">
           Checkout
-        </Button>
+        </SubmitButton>
       </Form.Item>
     </Form>
   );
 };
+
+const SubmitButton = styled(Button)`
+span {
+  color: white ;
+}
+`;

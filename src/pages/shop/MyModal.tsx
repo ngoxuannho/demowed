@@ -62,7 +62,7 @@ export default ({
     setQty(qty - 1);
   };
   return (
-    <Modal onOk={onOk} onCancel={onCancel} visible={visible} width={1000}>
+    <Modal footer={null} onOk={onOk} onCancel={onCancel} visible={visible} width={1000}>
       <Row gutter={[16, 16]}>
         <Col md={{ span: 12 }} sm={{ span: 24 }}>
           <ImageGallery

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { baseFontSize, height } from "../../rootStyledComponents";
 import styled from "styled-components";
 import MainNavLinkHolders from "./MainNavLinkHolders";
@@ -9,16 +9,47 @@ import {
 } from "@ant-design/icons";
 import CartDrawer from "../cartDrawer/CartDrawer";
 import { useState } from "react";
-import { Badge } from "antd";
+import { Badge, Dropdown, Menu, Space } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "../../slices/rootReducer";
 import { accent } from "../../rootStyledComponents";
 import InputDrawer from "../searchDrawer/InputDrawer";
+import { NavLink } from "./FeaturedList";
+
+const { SubMenu } = Menu;
+
+const menu = (onClick: () => void) => (
+  <Menu>
+    <SubMenu onTitleClick={onClick} title={"Featured"}>
+      <Menu.Item>
+        <NavLink to="#">Featured</NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="#">Best Seller</NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="#">Back in Stock</NavLink>
+      </Menu.Item>
+    </SubMenu>
+    <SubMenu onTitleClick={onClick} title={"Brand"}>
+      <Menu.Item>
+        <NavLink to="/shop?search=adidas">Adidas</NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="/shop?search=converse">Converse</NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="/shop?search=nike">Nike</NavLink>
+      </Menu.Item>
+    </SubMenu>
+  </Menu>
+);
 
 export default () => {
   const { cart } = useSelector((state: RootState) => state);
   const [visible, setVisible] = useState(false);
   const [searchVisible, setSearchvisible] = useState(false);
+  const navigate = useNavigate();
   const showDrawer = () => {
     setVisible(true);
   };
@@ -29,9 +60,11 @@ export default () => {
     setVisible(false);
   };
   const closeSearch = () => setSearchvisible(false);
+
+  const handleTitleClick = () => navigate("/shop");
   return (
     <>
-      <Header className="fg-reg d-flex align-items-center justify-content-between">
+      <Header id="nav" className="fg-reg d-flex align-items-center justify-content-between">
         <Link
           className=" order-md-1 order-2  "
           style={{ maxWidth: "min(195px, 100%)" }}
@@ -40,7 +73,16 @@ export default () => {
           <Logo src={logoUrl} alt="the sus" />
         </Link>
         <Nav className="d-flex order-md-2 order-1">
-          <MainNavLinkHolders />
+          {/* <MainNavLinkHolders /> */}
+          <Space align="center">
+            <Dropdown
+              className="dropdown"
+              overlay={() => menu(handleTitleClick)}
+              getPopupContainer={() => document.getElementById("nav")!}
+            >
+              <Link to="/shop">Shop</Link>
+            </Dropdown>
+          </Space>
         </Nav>
         <HeaderIcons className="order-md-3 order-3  ">
           <SearchOutlined className="search-icon" onClick={showSearch} />
@@ -69,6 +111,9 @@ export const Logo = styled.img`
 
 const Nav = styled.nav`
   height: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  color: ${accent};
 `;
 
 const Header = styled.header`

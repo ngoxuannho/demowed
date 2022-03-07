@@ -56,7 +56,7 @@ export const ProductsList = () => {
         <Row
           justify="center"
           gutter={[
-            { lg: 100, md: 40, xs: 0 },
+            { lg: 40, md: 40, xs: 0 },
             { sm: 16, md: 20 },
           ]}
         >
@@ -80,7 +80,7 @@ export const ProductsList = () => {
               ({ id, name, retailPrice, media, colorway }: Sneakers) => (
                 <Col
                   sm={listLayout ? { span: 24 } : { span: 24 }}
-                  md={listLayout ? { span: 24 } : { span: 8 }}
+                  md={listLayout ? { span: 24 } : { span: 6 }}
                   xs={24}
                   key={id}
                 >

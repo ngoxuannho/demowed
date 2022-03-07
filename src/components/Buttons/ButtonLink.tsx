@@ -3,12 +3,19 @@ import styled from "styled-components";
 import { baseFontSize } from "../../rootStyledComponents";
 
 interface ButtonProps {
-  text?:string,
-  location?: any,
-  className?:string
+  text?: string;
+  location?: any;
+  className?: string;
 }
 
 export const ButtonLink = styled(Link)`
+  @media (max-width: 1200px) {
+    font-size: 14px;
+    padding: 11px 30px;
+  }
+  @media (max-width: 576px) {
+    font-size: 16px;
+  }
   display: block;
   font-size: ${baseFontSize};
   background-color: #123026;

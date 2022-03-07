@@ -55,6 +55,7 @@ export default ({ item }: { item: iCart }) => {
                 max={46}
                 size="small"
                 defaultValue={item.size}
+                controls={false}
               />
             </div>
             <Dropdown
@@ -73,7 +74,13 @@ export default ({ item }: { item: iCart }) => {
             </Dropdown>
           </Info>
         </Col>
-        <Col lg={6} md={12} sm={12} xs={12} className="retail-price price d-flex">
+        <Col
+          lg={6}
+          md={12}
+          sm={12}
+          xs={12}
+          className="retail-price price d-flex"
+        >
           <span>$ {item.price}</span>
         </Col>
         <Col lg={6} md={12} sm={12} xs={12} className="inputNumber">

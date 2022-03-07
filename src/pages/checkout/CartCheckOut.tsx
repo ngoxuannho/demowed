@@ -10,6 +10,7 @@ import {
   coolBlack,
   backgroundGrey,
   btnGrey,
+  accent,
 } from "../../rootStyledComponents";
 
 const shipping = 3;
@@ -35,6 +36,7 @@ export default () => {
     (accumulator, current) => accumulator + current.price * current.qty,
     0
   );
+  console.log(couponValue?.length)
   return (
     <BackgroundWrapper lg={12} md={24} sm={24} xs={24}>
       <CartItemHolder lg={15}>
@@ -69,9 +71,13 @@ export default () => {
               className="input"
             />
           </FloatingLabel>
-          <Button className="btn bd-rad-8" size="large">
+          <CouponBtn
+            isDisabled={couponValue?.length}
+            className="btn bd-rad-8"
+            size="large"
+          >
             Apply
-          </Button>
+          </CouponBtn>
         </Coupon>
         <Subtotal className="main-txt">
           <div className="subtotal">
@@ -132,20 +138,6 @@ const Coupon = styled.div`
   column-gap: 16px;
   align-items: center;
   border-bottom: ${borderBlack};
-  .btn {
-    padding-left: 24px;
-    padding-right: 24px;
-    background-color: ${btnGrey};
-    span {
-      color: white !important;
-      font-weight: 100;
-    }
-    :hover {
-      border-color: unset;
-      opacity: 0.8;
-    }
-  }
-
   /* Force update ant style */
   .ant-input {
     padding: 16px 12px 4px 11px;
@@ -165,6 +157,22 @@ const Coupon = styled.div`
     top: 16px;
   }
 `;
+
+const CouponBtn = styled(Button)<{isDisabled: number | undefined}>`
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: ${({isDisabled}) => isDisabled ? accent : btnGrey};
+  > span {
+    color: white !important;
+    font-weight: 100;
+  }
+  :hover {
+    background-color: ${btnGrey} ;
+    border-color: ${btnGrey};
+    opacity: 0.8;
+  }
+`;
+
 const CartItemHolder = styled(Col)`
   padding-top: 92px;
   padding-left: 44px;

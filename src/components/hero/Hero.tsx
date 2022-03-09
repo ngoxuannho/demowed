@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { height } from "../../rootStyledComponents";
 import {ButtonLink} from "../buttons/ButtonLink";
 
 export const Hero = styled.div`
@@ -12,6 +13,7 @@ export const Hero = styled.div`
   min-height: 800px;
   background-position: center;
   overflow: hidden;
+  margin-top: ${height}
 `;
 const Wrapper = styled.div`
   height: fit-content;

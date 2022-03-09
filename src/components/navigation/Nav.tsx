@@ -61,13 +61,11 @@ export default () => {
   };
   const closeSearch = () => setSearchvisible(false);
 
-  const handleTitleClick = () => navigate("/shop");
   return (
-    <>
       <Header id="nav" className="fg-reg d-flex align-items-center justify-content-between">
         <Link
           className=" order-md-1 order-2  "
-          style={{ maxWidth: "min(195px, 100%)" }}
+          style={{ maxWidth: "min(190px, 100%)" }}
           to="/"
         >
           <Logo src={logoUrl} alt="the sus" />
@@ -94,7 +92,6 @@ export default () => {
           <CartDrawer onClose={onClose} visible={visible} />
         </HeaderIcons>
       </Header>
-    </>
   );
 };
 
@@ -117,10 +114,13 @@ const Nav = styled.nav`
 `;
 
 const Header = styled.header`
-  position: relative;
+  position: fixed;
+  z-index: 99 ;
   padding: 0 ${baseFontSize};
   height: ${height};
   min-height: max(${height}, 4em);
+  background-color: white;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
 `;
 
 const HeaderIcons = styled.div`

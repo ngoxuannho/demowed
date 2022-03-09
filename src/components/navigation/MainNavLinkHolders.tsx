@@ -5,7 +5,132 @@ import { baseFontSize, accent } from "../../rootStyledComponents";
 import { useRef, useState, useEffect } from "react";
 import { NavLink } from "./FeaturedList";
 import { Link } from "react-router-dom";
-import { DownOutlined, EllipsisOutlined, HomeFilled, PlusOutlined } from "@ant-design/icons";
+import {
+  DownOutlined,
+  EllipsisOutlined,
+  HomeFilled,
+  PlusOutlined,
+} from "@ant-design/icons";
+import { Drawer, Menu, Space, Dropdown } from "antd";
+
+const { SubMenu } = Menu;
+
+const menu = (
+  <Menu>
+    <SubMenu>
+      {/* <Menu.Item>
+        <Link to="#">Best Seller</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="#">New In</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="#">Back in stock</Link>
+      </Menu.Item> */}
+      <Dropdown
+        overlay={
+          <Menu>
+            <Menu.Item>
+              <Link to="#">Best Seller</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="#">New In</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="#">Back in stock</Link>
+            </Menu.Item>
+          </Menu>
+        }
+      >
+        <Space align="center">
+          <Link to="/shop">Featured</Link>
+          <PlusOutlined />
+        </Space>
+      </Dropdown>
+    </SubMenu>
+    <Menu.Divider />
+    <Menu.Item title={"Value"} disabled>
+      Value
+    </Menu.Item>
+  </Menu>
+);
+
+export default () => {
+  const [display, setDisplay] = useState(false);
+  const [displayDropdowns, setDisplayDropdowns] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
+  // const activeRef = useRef<any>(null);
+  // const toggleDisplay = () => setDisplay(!display);
+  // const toggleDropdowns = () => setDisplayDropdowns(!displayDropdowns);
+  // const ref = useRef<any>();
+  // useEffect(() => {
+  //   const checkIfClickedOutside = (e: any) => {
+  //     if (display && ref.current && !ref.current.contains(e.target)) {
+  //       setDisplay(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", checkIfClickedOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", checkIfClickedOutside);
+  //   };
+  // }, [display]);
+  // const toggle = () => {
+  //   const element = activeRef?.current.classList;
+  //   element.toggle("active");
+  // };
+  return (
+    <>
+      <CollapseIcon onClick={showDrawer} />
+      {/* <MainNavLinks ref={ref} display={display}> */}
+      <Drawer visible={visible} placement="left" onClose={onClose}>
+        <Dropdown trigger={["click", "hover"]} overlay={menu}>
+          <Space style={{ width: "100%" }} align={"center"}>
+            <Link style={{ fontSize: "16px", color: `${accent}` }} to="/shop">
+              Shop All
+            </Link>{" "}
+            <DownOutlined />
+          </Space>
+        </Dropdown>
+      </Drawer>
+      <MainNavLinks>
+        <Wrapper className="shop">
+          <MainNavLink to={"shop"}>Shop</MainNavLink>
+          {/* {display && <Icon onClick={toggleDropdowns} />} */}
+        </Wrapper>
+        {/* {displayDropdowns && (
+          <Dropdown>
+            <div className="mask"></div>
+            <FtDropdown>
+              <Title to={"#"}>Featured</Title>
+              <DownOutlined as={Icon} onClick={toggle} />
+            </FtDropdown>
+            <List ref={activeRef}>
+              <Item>
+                <NavLink to={"#"}>Best Seller</NavLink>
+              </Item>
+              <Item>
+                <NavLink to={"#"}>New In</NavLink>
+              </Item>
+              <Item>
+                <NavLink to={"#"}>Back In Stock</NavLink>
+              </Item>
+            </List>
+          </Dropdown>
+        )} */}
+        <MainNavLink className="values" to={"#"}>
+          Values
+        </MainNavLink>
+        <SubHeaderStyled />
+      </MainNavLinks>
+    </>
+  );
+};
 
 const MainNavLink = styled(Link)`
   font-size: ${baseFontSize};
@@ -19,13 +144,13 @@ const MainNavLink = styled(Link)`
   @media (max-width: 768px) {
     padding: 1rem 0.5rem;
   }
-  &.values{
-    cursor: not-allowed ;
+  &.values {
+    cursor: not-allowed;
   }
 `;
 
 interface StyledProps {
-  display?: boolean
+  display?: boolean;
 }
 
 const MainNavLinks = styled.div<StyledProps>`
@@ -47,11 +172,11 @@ const MainNavLinks = styled.div<StyledProps>`
     width: calc(100vw - 5rem);
     height: 100vh;
     background-color: white;
-    display: ${({ display }) : string=>  (display ? "flex" : "none")};
+    display: ${({ display }): string => (display ? "flex" : "none")};
   }
 `;
 
-const SubHeaderStyled:any = styled(SubHeader)`
+const SubHeaderStyled: any = styled(SubHeader)`
   /* @media (min-width: 769px) {
     ${MainNavLink}:first-of-type:hover ~ & {
       opacity: 1;
@@ -82,7 +207,6 @@ const Wrapper = styled.div`
       align-self: center;
     }
     :hover ~ ${SubHeaderStyled} {
-     
       opacity: 1;
       transform: translateX(0%) translateY(0%);
       transition: opacity 0.6s, transform 0.3s;
@@ -140,7 +264,7 @@ const Item = styled.li`
   margin: 0;
 `;
 
-const WrapperDropD = styled.div`
+const FtDropdown = styled.div`
   display: flex;
   justify-content: space-between;
   &,
@@ -151,58 +275,10 @@ const WrapperDropD = styled.div`
   }
 `;
 
-export default () => {
-  const [display, setDisplay] = useState(false);
-  const [displayDropdowns, setDisplayDropdowns] = useState(false);
-  const activeRef = useRef<any>(null);
-  const toggleDisplay = () => setDisplay(!display);
-  const toggleDropdowns = () => setDisplayDropdowns(!displayDropdowns);
-  const ref = useRef<any>();
-  useEffect(() => {
-    const checkIfClickedOutside = (e:any) => {
-      if (display && ref.current && !ref.current.contains(e.target)) {
-        setDisplay(false);
-      }
-    };
-    document.addEventListener("mousedown", checkIfClickedOutside);
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
-  }, [display]);
-  const toggle = () => {
-    const element = activeRef?.current.classList;
-    element.toggle("active");
-  };
-  return (
-    <>
-      <CollapseIcon onClick={toggleDisplay} />
-      <MainNavLinks ref={ref} display={display}>
-        <Wrapper className="shop">
-          <MainNavLink to={"shop"}>Shop</MainNavLink>
-          {display && <Icon onClick={toggleDropdowns} />}
-        </Wrapper>
-        {displayDropdowns && (
-          <>
-            <WrapperDropD>
-              <Title to={"#"}>Featured</Title>
-              <DownOutlined as={Icon} onClick={toggle} />
-            </WrapperDropD>
-            <List ref={activeRef}>
-              <Item>
-                <NavLink to={"#"}>Best Seller</NavLink>
-              </Item>
-              <Item>
-                <NavLink to={"#"}>New In</NavLink>
-              </Item>
-              <Item>
-                <NavLink to={"#"}>Back In Stock</NavLink>
-              </Item>
-            </List>
-          </>
-        )}
-        <MainNavLink className="values" to={"#"}>Values</MainNavLink>
-        <SubHeaderStyled />
-      </MainNavLinks>
-    </>
-  );
-};
+// const Dropdown = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   background-color: red;
+// `;

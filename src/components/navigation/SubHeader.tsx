@@ -62,13 +62,16 @@ const Brand = styled.div`
 
 const LinkWrapper = styled.div`
   display: flex;
-  column-gap: 4.5rem;
+  column-gap: 2.5rem;
 `;
 
 const MyRow = styled.div`
   display: flex;
   justify-content: center;
   column-gap: 12rem;
+  @media (max-width: 1200px) {
+    column-gap: 6rem;
+  }
 `;
 
 export default ({ className }: { className: any }) => {

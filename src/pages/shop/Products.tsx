@@ -5,7 +5,7 @@ import {
   accent as accentColor,
   accent,
 } from "../../rootStyledComponents";
-import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { StarFilled } from "@ant-design/icons";
 import { ButtonLink } from "../../components/buttons/ButtonLink";
 import { useState } from "react";
 import Modal from "./MyModal";
@@ -117,7 +117,7 @@ const CardHolder = styled.div`
     opacity: 1;
   }
   @media (max-width: 768px) {
-    padding: 0 48px ;
+    padding: 0 48px;
   }
 `;
 
@@ -171,7 +171,6 @@ const CardImgRatio = styled.div`
   position: relative;
   border-radius: 0px;
   overflow: hidden;
-
 `;
 const CardImg = styled.div`
   position: absolute;

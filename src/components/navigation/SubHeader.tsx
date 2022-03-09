@@ -4,9 +4,10 @@ import { Row, Col as ColBs } from "react-bootstrap";
 import { accent } from "../../rootStyledComponents";
 import Featured from "./FeaturedList";
 
-const Title = styled.div`
+const Title = styled.p`
   font-size: 1.15em;
   font-weight: 500;
+  margin: 0;
   margin-bottom: 1em;
 `;
 
@@ -44,7 +45,7 @@ export const SubHeader = styled.div`
     pointer-events: all;
   }
 `;
-const Col = styled(ColBs)`
+const Brand = styled.div`
   padding: 0 12px;
   display: flex;
   flex-direction: column;
@@ -59,15 +60,26 @@ const Col = styled(ColBs)`
   }
 `;
 
+const LinkWrapper = styled.div`
+  display: flex;
+  column-gap: 4.5rem;
+`;
+
+const MyRow = styled.div`
+  display: flex;
+  justify-content: center;
+  column-gap: 12rem;
+`;
+
 export default ({ className }: { className: any }) => {
   return (
     <SubHeader className={className}>
-      <Row>
+      <MyRow className="d-flex justify-content-center">
         <Featured className="mb-3" />
-        <Col lg={8} className="brand">
-          <Title>Popular Brand</Title>
-          <Row>
-            <Col sm={2}>
+        <Brand className="brand">
+          <Title className="me-auto">Popular Brand</Title>
+          <LinkWrapper>
+            <div>
               <ul>
                 <li>
                   <NavLink to={"shop/?search=adidas"}>Adidas</NavLink>
@@ -79,23 +91,23 @@ export default ({ className }: { className: any }) => {
                   <NavLink to={"shop/?search=converse"}>Converse</NavLink>
                 </li>
               </ul>
-            </Col>
-            {/* <Col sm={2} lg={4}>
+            </div>
+            <div>
               <ul>
                 <li>
-                  <NavLink to={"shop/drmartin"}>Dr.Martin</NavLink>
+                  <NavLink to={"/shop"}>Dr.Martin</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"shop/tinhsau"}>Tinh Sau</NavLink>
+                  <NavLink to={"/shop"}>New Balance</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"shop/kobiet"}>Khong biet</NavLink>
+                  <NavLink to={"/shop"}>Asis</NavLink>
                 </li>
               </ul>
-            </Col> */}
-          </Row>
-        </Col>
-      </Row>
+            </div>
+          </LinkWrapper>
+        </Brand>
+      </MyRow>
     </SubHeader>
   );
 };

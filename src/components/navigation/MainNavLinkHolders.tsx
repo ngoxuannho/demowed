@@ -85,7 +85,7 @@ const Wrapper = styled.div`
      
       opacity: 1;
       transform: translateX(0%) translateY(0%);
-      transition: opacity 0.8s, transform 0.4s;
+      transition: opacity 0.6s, transform 0.3s;
       pointer-events: all;
     }
   }

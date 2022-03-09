@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import {Link} from "react-router-dom";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
-import { accent} from "../../rootStyledComponents";
+import { accent } from "../../rootStyledComponents";
 import { PlusOutlined } from "@ant-design/icons";
 
 const Title = styled(Link)`
@@ -39,22 +39,21 @@ const PlusIcon = styled(PlusOutlined)`
   }
 `;
 
-export default ({ className }: {className: string}) => {
+export default ({ className }: { className: string }) => {
   return (
-    <Col lg={4} className={className}>
-    <Title to={"shop/featured"}>Featured</Title>
-    <List>
-      <Item>
-        <NavLink to={"#"} >Best Seller</NavLink>
-      </Item>
-      <Item>
-        <NavLink to={"#"} >New In</NavLink>
-      </Item>
-      <Item>
-        <NavLink to={"#"} >Back in Stock</NavLink>
-      </Item>
-    </List>
-  </Col>
+    <div className={className}>
+      <Title to={"shop"}>Featured</Title>
+      <List>
+        <Item>
+          <NavLink to={"#"}>Best Seller</NavLink>
+        </Item>
+        <Item>
+          <NavLink to={"#"}>New In</NavLink>
+        </Item>
+        <Item>
+          <NavLink to={"#"}>Back in Stock</NavLink>
+        </Item>
+      </List>
+    </div>
   );
 };
-

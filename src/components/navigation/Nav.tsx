@@ -73,16 +73,16 @@ export default () => {
           <Logo src={logoUrl} alt="the sus" />
         </Link>
         <Nav className="d-flex order-md-2 order-1">
-          {/* <MainNavLinkHolders /> */}
-          <Space align="center">
+          <MainNavLinkHolders />
+          {/* <Space align="center">
             <Dropdown
               className="dropdown"
               overlay={() => menu(handleTitleClick)}
-              getPopupContainer={() => document.getElementById("nav")!}
+              overlayStyle={{width: "150px"}}
             >
               <Link to="/shop">Shop</Link>
             </Dropdown>
-          </Space>
+          </Space> */}
         </Nav>
         <HeaderIcons className="order-md-3 order-3  ">
           <SearchOutlined className="search-icon" onClick={showSearch} />

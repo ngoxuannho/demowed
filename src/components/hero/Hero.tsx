@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { height } from "../../rootStyledComponents";
-import {ButtonLink} from "../buttons/ButtonLink";
+import { ButtonLink } from "../Buttons/ButtonLink";
 
 export const Hero = styled.div`
   display: flex;

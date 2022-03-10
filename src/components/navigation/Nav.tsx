@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { baseFontSize, height } from "../../rootStyledComponents";
 import styled from "styled-components";
 import MainNavLinkHolders from "./MainNavLinkHolders";
@@ -9,47 +9,17 @@ import {
 } from "@ant-design/icons";
 import CartDrawer from "../cartDrawer/CartDrawer";
 import { useState } from "react";
-import { Badge, Dropdown, Menu, Space } from "antd";
+import { Badge } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "../../slices/rootReducer";
 import { accent } from "../../rootStyledComponents";
 import InputDrawer from "../searchDrawer/InputDrawer";
-import { NavLink } from "./FeaturedList";
-
-const { SubMenu } = Menu;
-
-const menu = (onClick: () => void) => (
-  <Menu>
-    <SubMenu onTitleClick={onClick} title={"Featured"}>
-      <Menu.Item>
-        <NavLink to="#">Featured</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <NavLink to="#">Best Seller</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <NavLink to="#">Back in Stock</NavLink>
-      </Menu.Item>
-    </SubMenu>
-    <SubMenu onTitleClick={onClick} title={"Brand"}>
-      <Menu.Item>
-        <NavLink to="/shop?search=adidas">Adidas</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <NavLink to="/shop?search=converse">Converse</NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <NavLink to="/shop?search=nike">Nike</NavLink>
-      </Menu.Item>
-    </SubMenu>
-  </Menu>
-);
+import { Container, Row } from "react-bootstrap";
 
 export default () => {
   const { cart } = useSelector((state: RootState) => state);
   const [visible, setVisible] = useState(false);
   const [searchVisible, setSearchvisible] = useState(false);
-  const navigate = useNavigate();
   const showDrawer = () => {
     setVisible(true);
   };
@@ -62,36 +32,31 @@ export default () => {
   const closeSearch = () => setSearchvisible(false);
 
   return (
-      <Header id="nav" className="fg-reg d-flex align-items-center justify-content-between">
-        <Link
-          className=" order-md-1 order-2  "
-          style={{ maxWidth: "min(190px, 100%)" }}
-          to="/"
-        >
-          <Logo src={logoUrl} alt="the sus" />
-        </Link>
-        <Nav className="d-flex order-md-2 order-1">
-          <MainNavLinkHolders />
-          {/* <Space align="center">
-            <Dropdown
-              className="dropdown"
-              overlay={() => menu(handleTitleClick)}
-              overlayStyle={{width: "150px"}}
-            >
-              <Link to="/shop">Shop</Link>
-            </Dropdown>
-          </Space> */}
-        </Nav>
-        <HeaderIcons className="order-md-3 order-3  ">
-          <SearchOutlined className="search-icon" onClick={showSearch} />
-          <UserOutlined />
-          <Badge count={cart.length}>
-            <ShoppingOutlined onClick={showDrawer} />
-          </Badge>
-          <InputDrawer onClose={closeSearch} visible={searchVisible} />
-          <CartDrawer onClose={onClose} visible={visible} />
-        </HeaderIcons>
-      </Header>
+    <Header
+      as="header"
+      id="nav"
+      className="d-flex align-items-center justify-content-between"
+    >
+      <Link
+        className=" order-md-1 order-2  "
+        style={{ maxWidth: "min(190px, 100%)" }}
+        to="/"
+      >
+        <Logo src={logoUrl} alt="the sus" />
+      </Link>
+      <Nav className="d-flex order-md-2 order-1">
+        <MainNavLinkHolders />
+      </Nav>
+      <HeaderIcons className="order-md-3 order-3  ">
+        <SearchOutlined className="search-icon" onClick={showSearch} />
+        <UserOutlined />
+        <Badge count={cart.length}>
+          <ShoppingOutlined onClick={showDrawer} />
+        </Badge>
+        <InputDrawer onClose={closeSearch} visible={searchVisible} />
+        <CartDrawer onClose={onClose} visible={visible} />
+      </HeaderIcons>
+    </Header>
   );
 };
 
@@ -113,9 +78,12 @@ const Nav = styled.nav`
   color: ${accent};
 `;
 
-const Header = styled.header`
+const Header = styled(Container)`
   position: fixed;
-  z-index: 99 ;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
   padding: 0 ${baseFontSize};
   height: ${height};
   min-height: max(${height}, 4em);
@@ -143,8 +111,4 @@ const HeaderIcons = styled.div`
       // hide icon "user"
     }
   }
-`;
-
-const Dflex = styled.div`
-  display: flex;
 `;

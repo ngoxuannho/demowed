@@ -17,8 +17,8 @@ const { SubMenu } = Menu;
 
 const menu = (
   <Menu>
-    <SubMenu>
-      {/* <Menu.Item>
+    <Menu.ItemGroup title={<Link to="/shop">Featured</Link>}>
+      <Menu.Item>
         <Link to="#">Best Seller</Link>
       </Menu.Item>
       <Menu.Item>
@@ -26,28 +26,8 @@ const menu = (
       </Menu.Item>
       <Menu.Item>
         <Link to="#">Back in stock</Link>
-      </Menu.Item> */}
-      <Dropdown
-        overlay={
-          <Menu>
-            <Menu.Item>
-              <Link to="#">Best Seller</Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link to="#">New In</Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link to="#">Back in stock</Link>
-            </Menu.Item>
-          </Menu>
-        }
-      >
-        <Space align="center">
-          <Link to="/shop">Featured</Link>
-          <PlusOutlined />
-        </Space>
-      </Dropdown>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.ItemGroup>
     <Menu.Divider />
     <Menu.Item title={"Value"} disabled>
       Value
@@ -89,40 +69,40 @@ export default () => {
       <CollapseIcon onClick={showDrawer} />
       {/* <MainNavLinks ref={ref} display={display}> */}
       <Drawer visible={visible} placement="left" onClose={onClose}>
-        <Dropdown trigger={["click", "hover"]} overlay={menu}>
-          <Space style={{ width: "100%" }} align={"center"}>
-            <Link style={{ fontSize: "16px", color: `${accent}` }} to="/shop">
-              Shop All
-            </Link>{" "}
-            <DownOutlined />
-          </Space>
-        </Dropdown>
+        <Menu style={{border: "none"}} onSelect={onClose} mode="inline">
+          <SubMenu  title={<Link to="/shop">Shop All</Link>}>
+            <SubMenu title={<Link to="/shop">Featured</Link>}>
+              <Menu.Item>
+                <Link to="#">Best Seller</Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to="#">New In</Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to="#">Back in stock</Link>
+              </Menu.Item>
+            </SubMenu>
+            <SubMenu  title={<Link to="/shop">Brand</Link>}>
+              <Menu.Item>
+                <Link to="/shop?search=adidas">Adidas</Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to="shop?search=nike">Nike</Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to="shop?search=converse">Converse</Link>
+              </Menu.Item>
+            </SubMenu>
+          </SubMenu>
+          <Menu.Item title={"Value"} disabled>
+            Value
+          </Menu.Item>
+        </Menu>
       </Drawer>
       <MainNavLinks>
         <Wrapper className="shop">
           <MainNavLink to={"shop"}>Shop</MainNavLink>
-          {/* {display && <Icon onClick={toggleDropdowns} />} */}
         </Wrapper>
-        {/* {displayDropdowns && (
-          <Dropdown>
-            <div className="mask"></div>
-            <FtDropdown>
-              <Title to={"#"}>Featured</Title>
-              <DownOutlined as={Icon} onClick={toggle} />
-            </FtDropdown>
-            <List ref={activeRef}>
-              <Item>
-                <NavLink to={"#"}>Best Seller</NavLink>
-              </Item>
-              <Item>
-                <NavLink to={"#"}>New In</NavLink>
-              </Item>
-              <Item>
-                <NavLink to={"#"}>Back In Stock</NavLink>
-              </Item>
-            </List>
-          </Dropdown>
-        )} */}
         <MainNavLink className="values" to={"#"}>
           Values
         </MainNavLink>
@@ -177,20 +157,6 @@ const MainNavLinks = styled.div<StyledProps>`
 `;
 
 const SubHeaderStyled: any = styled(SubHeader)`
-  /* @media (min-width: 769px) {
-    ${MainNavLink}:first-of-type:hover ~ & {
-      opacity: 1;
-      transform: translateX(0%) translateY(0%);
-      transition: opacity 0.8s, transform 0.4s;
-      pointer-events: all;
-    }
-  } */
-`;
-const Icon = styled(PlusOutlined)`
-  width: 16px;
-  @media (min-width: 769px) {
-    display: none;
-  }
 `;
 const Wrapper = styled.div`
   width: 100%;
@@ -225,60 +191,4 @@ const CollapseIcon = styled(HomeFilled)`
     align-self: center;
   }
 `;
-const Title = styled(Link)`
-  display: block;
-  padding: 0.1rem 1.25rem;
-  margin: 0rem 0.15rem;
-  font-size: 1.15em;
-  font-weight: 200;
-  margin-bottom: 1em;
-  pointer-events: none;
-  opacity: 0;
-  :hover {
-    opacity: 1 !important;
-  }
-  @media (max-width: 768px) {
-    opacity: 0.6 !important;
-    pointer-events: all;
-    margin-bottom: 0.2em;
-  }
-`;
-const List = styled.ul`
-  padding: 0 28px;
-  margin: 0;
-  pointer-events: none;
-  opacity: 0;
-  height: 0;
-  padding-bottom: 12px;
 
-  &.active {
-    height: 50px !important;
-    opacity: 1;
-    pointer-events: all;
-    transition: opacity 0.5s, height 0.4s !important;
-  }
-`;
-const Item = styled.li`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const FtDropdown = styled.div`
-  display: flex;
-  justify-content: space-between;
-  &,
-  & + ${List} {
-    @media (min-width: 769px) {
-      display: none;
-    }
-  }
-`;
-
-// const Dropdown = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   background-color: red;
-// `;

@@ -7,7 +7,7 @@ export const ResultAntd = () => {
       title="500"
       subTitle="Sorry, something went wrong."
       extra={
-        <Link to="/home">
+        <Link to="/">
           <Button type="primary">Back Home</Button>
         </Link>
       }

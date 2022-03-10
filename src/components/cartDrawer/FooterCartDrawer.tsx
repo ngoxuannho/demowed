@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../../slices/rootReducer";
 import { accent } from "../../rootStyledComponents";
-import { ButtonLink } from "../buttons/ButtonLink";
+import { ButtonLink } from "../Buttons/ButtonLink";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 export default () => {

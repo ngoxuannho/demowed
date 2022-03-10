@@ -36,7 +36,7 @@ export default () => {
     (accumulator, current) => accumulator + current.price * current.qty,
     0
   );
-  console.log(couponValue?.length)
+  console.log(couponValue?.length);
   return (
     <BackgroundWrapper lg={12} md={24} sm={24} xs={24}>
       <CartItemHolder lg={15}>
@@ -47,9 +47,8 @@ export default () => {
             <List.Item>
               <Row align="middle" gutter={[24, 0]}>
                 <ImgWrapper imgWidth={imgWidth} ref={imgRef} lg={3}>
-                  <Badge size="small" count={item.qty}>
-                    <img src={item.thumbImg} alt={item.name} />
-                  </Badge>
+                  <img src={item.thumbImg} alt={item.name} />
+                  {/* <span>{item.qty}</span> */}
                 </ImgWrapper>
                 <Col className="name-holder" span={18}>
                   <div className="name main-txt">{item.name}</div>
@@ -158,16 +157,16 @@ const Coupon = styled.div`
   }
 `;
 
-const CouponBtn = styled(Button)<{isDisabled: number | undefined}>`
+const CouponBtn = styled(Button)<{ isDisabled: number | undefined }>`
   padding-left: 24px;
   padding-right: 24px;
-  background-color: ${({isDisabled}) => isDisabled ? accent : btnGrey};
+  background-color: ${({ isDisabled }) => (isDisabled ? accent : btnGrey)};
   > span {
     color: white !important;
     font-weight: 100;
   }
   :hover {
-    background-color: ${btnGrey} ;
+    background-color: ${btnGrey};
     border-color: ${btnGrey};
     opacity: 0.8;
   }
@@ -203,20 +202,36 @@ const CartItemHolder = styled(Col)`
   }
 `;
 const ImgWrapper = styled(Col)<{ imgWidth: number }>`
+  position: relative;
   border: ${borderBlack};
   border-radius: 8%;
   width: 100%;
   height: ${({ imgWidth }) => `${imgWidth}px`};
   display: flex;
   align-items: center;
-  /* padding: 0 4px; */
   background-color: white;
+  span {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background-color: ${accent};
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+  }
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    @media (max-width: 768px) {
+      width: 30px !important;
+      height: 30px !important;
+    }
   }
 `;
+
 const BackgroundWrapper = styled(Col)`
   background-color: ${backgroundGrey};
   box-shadow: 1px 0 0 #e1e1e1 inset;

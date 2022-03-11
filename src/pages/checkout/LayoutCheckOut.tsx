@@ -5,9 +5,10 @@ import CartCheckOut from "./CartCheckOut";
 import { coolBlack, subText } from "../../rootStyledComponents";
 import { Link } from "react-router-dom";
 import { StyledBreadCrumb } from "../details/Product";
+import { Content } from "antd/lib/layout/layout";
 
 export default () => {
-    const location = useLocation()
+  const location = useLocation();
   const pathSnippets = location.pathname.split("/").filter((i) => i);
   const breadcrumbNameMap = ["Checkout", `Finish`];
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -24,18 +25,20 @@ export default () => {
     </Breadcrumb.Item>,
   ].concat(extraBreadcrumbItems);
   return (
-    <Container >
-      <Col lg={12} md={24} sm={24} xs={24}>
-        <Link to="/" className="ps-3">
-          <Logo src={logoUrl} alt="the sus" />
-        </Link>
-        <StyledBreadCrumb>{breadcrumbItems}</StyledBreadCrumb>
-        <Wrapper>
-          <Outlet />
-        </Wrapper>
-      </Col>
-      <CartCheckOut />
-    </Container>
+    <Content>
+      <Container>
+        <Col lg={12} md={24} sm={24} xs={24}>
+          <Link to="/" className="ps-3">
+            <Logo src={logoUrl} alt="the sus" />
+          </Link>
+          <StyledBreadCrumb>{breadcrumbItems}</StyledBreadCrumb>
+          <Wrapper>
+            <Outlet />
+          </Wrapper>
+        </Col>
+        <CartCheckOut />
+      </Container>
+    </Content>
   );
 };
 
@@ -70,7 +73,7 @@ const Container = styled(Row)`
 `;
 
 const Wrapper = styled.div`
-padding: 0 20px ;
+  padding: 0 20px;
   @media (max-width: 768px) {
     display: flex;
     justify-content: center;

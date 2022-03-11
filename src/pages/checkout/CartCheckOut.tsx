@@ -36,7 +36,6 @@ export default () => {
     (accumulator, current) => accumulator + current.price * current.qty,
     0
   );
-  console.log(couponValue?.length);
   return (
     <BackgroundWrapper lg={12} md={24} sm={24} xs={24}>
       <CartItemHolder lg={20} md={24} sm={24} xs={24}>

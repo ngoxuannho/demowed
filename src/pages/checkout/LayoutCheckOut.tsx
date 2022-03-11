@@ -6,6 +6,7 @@ import { coolBlack, subText } from "../../rootStyledComponents";
 import { Link } from "react-router-dom";
 import { StyledBreadCrumb } from "../details/Product";
 import { Content } from "antd/lib/layout/layout";
+import { Container as ContainerBS } from "react-bootstrap";
 
 export default () => {
   const location = useLocation();
@@ -32,9 +33,9 @@ export default () => {
             <Logo src={logoUrl} alt="the sus" />
           </Link>
           <StyledBreadCrumb>{breadcrumbItems}</StyledBreadCrumb>
-          <Wrapper>
+          <ContainerBS>
             <Outlet />
-          </Wrapper>
+          </ContainerBS>
         </Col>
         <CartCheckOut />
       </Container>
@@ -72,10 +73,3 @@ const Container = styled(Row)`
   }
 `;
 
-const Wrapper = styled.div`
-  padding: 0 20px;
-  @media (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-  }
-`;

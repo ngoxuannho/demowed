@@ -99,7 +99,6 @@ export default () => {
       form={form}
       name="register"
       onFinish={onFinish}
-      size="large"
       initialValues={user}
       scrollToFirstError
       validateTrigger="onSubmit"

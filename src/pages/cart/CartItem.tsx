@@ -76,9 +76,9 @@ export default ({ item }: { item: iCart }) => {
         </Col>
         <Col
           lg={6}
-          md={12}
-          sm={12}
-          xs={12}
+          md={{span: 0}}
+          sm={{span: 0}}
+          xs={{span: 0}}
           className="retail-price price d-flex"
         >
           <span>$ {item.price}</span>

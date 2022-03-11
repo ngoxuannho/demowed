@@ -49,7 +49,9 @@ const BtnLink = styled(ButtonLink)`
   padding: 6px 40px !important;
 `;
 const Holder = styled(Container)`
-margin-bottom: 52px;
+.cart-header {
+  padding: 52px 24px;
+}
   .ant-page-header-heading-title {
     font-size: 28px;
     @media (max-width: 768px) {

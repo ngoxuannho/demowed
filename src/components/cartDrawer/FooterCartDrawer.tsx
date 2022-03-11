@@ -5,7 +5,7 @@ import { accent } from "../../rootStyledComponents";
 import { ButtonLink } from "../Buttons/ButtonLink";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-export default () => {
+export default ({onClose} : {onClose: () => void}) => {
   const { cart } = useSelector((state: RootState) => state);
   const total = cart.reduce<number>((accumulator, current) => {
     return accumulator + current.price * current.qty;
@@ -18,12 +18,12 @@ export default () => {
         <div className="value ms-auto">$ {total}</div>
       </div>
       <Buttons>
-        <Button className="antd-btn" type="text" shape="round">
-          <Link to="/cart">
-            <u>View Cart</u>
+        <Button onClick={onClose} className="antd-btn" type="text" shape="round">
+          <Link  to="/cart">
+            <u  >View Cart</u>
           </Link>
         </Button>
-        <ButtonLink to="/checkout">Check Out</ButtonLink>
+        <ButtonLink onClick={onClose} to="/checkout">Check Out</ButtonLink>
       </Buttons>
     </Wrapper>
   );

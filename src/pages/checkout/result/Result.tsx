@@ -21,7 +21,7 @@ export default () => {
       subTitle={<SubTitle />}
       extra={
         <Link to={"/shop"}>
-          <StyledBtn size="large" shape="round">
+          <StyledBtn size="large" type="primary" shape="round">
             Back to Shop{" "}
           </StyledBtn>
         </Link>
@@ -30,8 +30,7 @@ export default () => {
   );
 };
 const StyledBtn = styled(Button)`
-:hover {
-  border-color: ${accent};
-  color: ${accent} ;
+span {
+  color: white;
 }
 `; 

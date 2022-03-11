@@ -27,7 +27,21 @@ export default () => {
           className="cart-header"
           onBack={() => window.history.back()}
           title="Your Cart"
-          extra={<><BtnLink as={Button} size="large"  shape="round" type="text" danger onClick={() => dispatch(delAll())}>Clear cart</BtnLink><BtnLink to={"/checkout"}>Check Out</BtnLink></>}
+          extra={
+            <>
+              <BtnLink
+                as={Button}
+                size="large"
+                shape="round"
+                type="text"
+                danger
+                onClick={() => dispatch(delAll())}
+              >
+                Clear cart
+              </BtnLink>
+              <BtnLink to={"/checkout"}>Check Out</BtnLink>
+            </>
+          }
           footer={<FooterCart totalPrice={totalPrice} />}
         >
           <List
@@ -49,9 +63,9 @@ const BtnLink = styled(ButtonLink)`
   padding: 6px 40px !important;
 `;
 const Holder = styled(Container)`
-.cart-header {
-  padding: 52px 24px;
-}
+  .cart-header {
+    padding: 52px 24px;
+  }
   .ant-page-header-heading-title {
     font-size: 28px;
     @media (max-width: 768px) {

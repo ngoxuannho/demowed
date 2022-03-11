@@ -40,7 +40,7 @@ export default ({ item }: { item: iCart }) => {
   return (
     <>
       <Wrapper>
-        <Col lg={6} md={12} sm={12} xs={12} className="product-left d-flex">
+        <Col lg={6} md={23} sm={23} xs={23} className="product-left d-flex">
           <div className="img-wrapper">
             <img src={item.thumbImg} alt={item.name} />
           </div>
@@ -74,32 +74,36 @@ export default ({ item }: { item: iCart }) => {
             </Dropdown>
           </Info>
         </Col>
-        <Col
-          lg={6}
-          md={{span: 0}}
-          sm={{span: 0}}
-          xs={{span: 0}}
-          className="retail-price price d-flex"
-        >
+        <Col lg={6} md={0} sm={0} xs={0} className="retail-price price d-flex">
           <span>$ {item.price}</span>
         </Col>
-        <Col lg={6} md={12} sm={12} xs={12} className="inputNumber">
+        <Col lg={5} md={{span: 0, order:3}} sm={{span: 0, order:3}} xs={{span: 0, order:3}} className="inputNumber">
           <StyledInputNumber
             qty={item.qty}
             clickDecrement={clickDecrement}
             clickIncrement={clickIncrement}
           />
         </Col>
-        <Col lg={6} md={12} sm={12} xs={12} className="total-price price">
+        <Col lg={6} md={{span: 0, order:3}} sm={{span: 0, order:3}} xs={{span: 0, order:3}} className="total-price price">
           $ {item.price * item.qty}
         </Col>
-      </Wrapper>
-      <div className="d-flex align-items center">
+        <Col xs={{span: 1, order:2}} sm={{span: 1, order:2}} md={{span: 1, order:2}} lg={{span: 1, order:5}} className="d-flex align-items-center">
         <DeleteOutlined onClick={handleDelClick} />
-      </div>
+      </Col>
+      </Wrapper>
+
     </>
   );
 };
+
+const RelativeWrapper = styled.div`
+position: relative;
+&:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+`
 
 const Wrapper = styled(Row)`
   font-size: 1em;
@@ -109,6 +113,11 @@ const Wrapper = styled(Row)`
     @media (max-width: 678px) {
       width: 74px;
     }
+  }
+  .ant-dropdown-link .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   img {
     width: 100%;
@@ -126,6 +135,25 @@ const Wrapper = styled(Row)`
   .price {
     font-size: 1.2em;
     font-weight: 500;
+  }
+  .retail-price {
+    @media (max-width: 992px) {
+      span {
+        display: none;
+      }
+    }
+  }
+  .inputNumber {
+    @media (max-width: 992px) {
+      margin-block-start: 16px;
+    }
+  }
+  .total-price {
+    @media (max-width: 992px) {
+      margin-block-start: 16px;
+      margin-inline-start: auto;
+      writing-mode: horizontal-tb;
+    }
   }
 `;
 const Info = styled.div`

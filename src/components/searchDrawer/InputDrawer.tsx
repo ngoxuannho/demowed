@@ -45,6 +45,7 @@ export default ({ onClose, visible }: iDrawer) => {
       return;
     }
     message.error("No product match");
+    onClose();
   };
   return (
     <Drawer

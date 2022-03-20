@@ -38,23 +38,25 @@ export default () => {
   );
   return (
     <BackgroundWrapper lg={12} md={24} sm={24} xs={24}>
-      <CartItemHolder lg={15}>
+      <CartItemHolder lg={20} md={24} sm={24} xs={24}>
         <List
           itemLayout="horizontal"
           dataSource={cart}
           renderItem={(item: iCart) => (
             <List.Item>
               <Row align="middle" gutter={[24, 0]}>
-                <ImgWrapper imgWidth={imgWidth} ref={imgRef} lg={3}>
-                  <img src={item.thumbImg} alt={item.name} />
-                  {/* <span>{item.qty}</span> */}
+                <ImgWrapper imgWidth={imgWidth} ref={imgRef} lg={3} sm={4} xs={4}  >
+                  <div>
+                    <img src={item.thumbImg} alt={item.name} />
+                  </div>
+                  <span>{item.qty}</span>
                 </ImgWrapper>
-                <Col className="name-holder" span={18}>
+                <Col className="name-holder" lg={18} sm={16} xs={16} >
                   <div className="name main-txt">{item.name}</div>
                   <div className="size sub-txt">{item.size}</div>
                   <div className="color sub-txt">{item.options}</div>
                 </Col>
-                <Col lg={3} className="price main-txt">
+                <Col lg={3} sm={4} xs={4} className="price main-txt">
                   $ {item.qty * item.price}
                 </Col>
               </Row>
@@ -183,22 +185,21 @@ const CartItemHolder = styled(Col)`
       flex-direction: column;
       justify-content: center;
     }
-  }
-  .name-holder {
-    @media (max-width: 768px) {
-      margin-top: 20px;
+  };
+  @media (max-width: 768px) {
+    padding: 44px 20px;
     }
-  }
+  };
   > :first-child {
     border-bottom: ${borderBlack};
     border-width: 2px;
     padding: 8px;
-  }
+  };
   .price {
     display: flex;
     justify-content: end;
     padding: unset !important;
-  }
+  };
 `;
 const ImgWrapper = styled(Col)<{ imgWidth: number }>`
   position: relative;
@@ -208,26 +209,28 @@ const ImgWrapper = styled(Col)<{ imgWidth: number }>`
   height: ${({ imgWidth }) => `${imgWidth}px`};
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: white;
   span {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: -8px;
+    right: -10px;
     color: white;
     background-color: ${accent};
     border-radius: 50%;
     height: 20px;
     width: 20px;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   img {
     width: 100%;
     height: 100%;
+    min-width: 20px;
+    min-height: 20px;
     object-fit: contain;
-    @media (max-width: 768px) {
-      width: 30px !important;
-      height: 30px !important;
-    }
   }
 `;
 

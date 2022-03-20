@@ -37,7 +37,7 @@ export default () => {
         renderItem={(user: [][]) => {
           return (
             <List.Item>
-              <span>
+              <span style={{textAlign:"start"}}>
                 {user[0]} : {user[1]}
               </span>
             </List.Item>

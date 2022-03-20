@@ -21,7 +21,7 @@ export default ({ onClose, visible }: iDrawer) => {
       placement="right"
       onClose={onClose}
       visible={visible}
-      footer={<FooterCartDrawer />}
+      footer={<FooterCartDrawer onClose={onClose} />}
     >
       <List
         itemLayout="horizontal"

@@ -49,8 +49,8 @@ export default () => {
       <MyCol xs={12} lg={5} md={6} sm={12}>
         <ul className="contact">
           <div className="title">Get In Touch</div>
-          <li>Call us at 0836650374</li>
-          <li>Email: singed8@gmail.com</li>
+          <li>Call us at 0999999999</li>
+          <li>Email: nhoga@gmail.com</li>
           <li className="media">instagram</li>
           <li className="media">facebook</li>
           <li className="media">pinterest</li>

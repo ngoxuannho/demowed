@@ -80,7 +80,7 @@ export default ({ className }: { className: any }) => {
       <MyRow className="d-flex justify-content-center">
         <Featured className="mb-3" />
         <Brand className="brand">
-          <Title className="me-auto">Popular Brand</Title>
+          <Title className="me-auto">Thương Hiệu</Title>
           <LinkWrapper>
             <div>
               <ul>
@@ -98,10 +98,10 @@ export default ({ className }: { className: any }) => {
             <div>
               <ul>
                 <li>
-                  <NavLink to={"/shop"}>Dr.Martin</NavLink>
+                  <NavLink to={"/shop"}>Nike</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/shop"}>New Balance</NavLink>
+                  <NavLink to={"/shop"}>Nike</NavLink>
                 </li>
                 <li>
                   <NavLink to={"/shop"}>Asis</NavLink>

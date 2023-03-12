@@ -37,9 +37,9 @@ export default () => {
                 danger
                 onClick={() => dispatch(delAll())}
               >
-                Clear cart
+                xoá giỏ hàng
               </BtnLink>
-              <BtnLink to={"/checkout"}>Check Out</BtnLink>
+              <BtnLink to={"/checkout"}>Thanh Toán</BtnLink>
             </>
           }
           footer={<FooterCart totalPrice={totalPrice} />}

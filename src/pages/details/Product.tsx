@@ -111,39 +111,35 @@ export default () => {
                     },
                     {
                       original:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_1280x.jpg?v=1636413353",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                       thumbnail:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_200x.jpg?v=1636413353",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                     },
                     {
-                      thumbnail:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_200x.jpg?v=1636589360",
                       original:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_1280x.jpg?v=1636589360",
-                    },
-                    {
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                       thumbnail:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_200x.jpg?v=1636413353",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+                    },{
                       original:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_1280x.jpg?v=1636413353",
-                    },
-                    {
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                       thumbnail:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_200x.jpg?v=1636413353",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+                    },{
                       original:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_1280x.jpg?v=1636413353",
-                    },
-                    {
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                       thumbnail:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_200x.jpg?v=1636413352",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+                    },{
                       original:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_1280x.jpg?v=1636413352",
-                    },
-                    {
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                       thumbnail:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_200x.jpg?v=1636413353",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+                    },{
                       original:
-                        "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_1280x.jpg?v=1636413353",
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+                      thumbnail:
+                        "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                     },
                   ]}
                   thumbnailPosition={isSmallScreen ? "bottom" : "left"}
@@ -157,17 +153,11 @@ export default () => {
                   <div className="title">{productName}</div>
                   <div className="price">$ {qtyPrice}</div>
                   <div className="description">
-                    It's our bestselling boot - but upgraded. Be anywhere and do
-                    anything, in a boot that does it all. The Z is made with a
-                    water resistant upper, extra warm lining and grippy rubber
-                    sole. Featuring an inside zip that makes it easy to slip
-                    them on-and-off for life on the go. And the best part - each
-                    pair is 100% vegan and made with 95% natural and recycled
-                    materials.
+                  Thiết kế của giày đã đa dạng và phong phú vô cùng theo thời gian, văn hoá và mục đích sbmkdụng. Ngoài ra thời trang cũng chi phối nhiều yếu tố thiết kế, chẳng hạn như giày có gót rất cao (giày cao gót) hay có gót phẳng (giày thể thao). Giày dép hiện đại rất khác nhau về mục đích sử dụng, phong cách và giá thành. Dép đơn giản có thể rất mỏng và chỉ bao gồm một dây duy nhất trong khi giày thời trang hiện đại có thể được làm từ các vật liệu rất tốn kém, kết cấu phức tạp và giá hàng ngàn đôla một đôi. Các loại giày khác cho các mục đích sử dụng khác như giày leo núi hay giày trượt tuyết,...
                   </div>
                   <div className="review">
                     <Rating className="rating" />
-                    <div className="count">14 reviews</div>
+                    <div className="count">10000 đánh giá</div>
                   </div>
                   <Options
                     colorSelected={colorSelected}

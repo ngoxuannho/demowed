@@ -64,7 +64,7 @@ export default () => {
           )}
         />
         <Coupon>
-          <FloatingLabel label="Gift card or discount code" value={couponValue}>
+          <FloatingLabel label="Thêm Mã Giảm Giá" value={couponValue}>
             <Input
               value={couponValue}
               onChange={(e) => setCouponValue(e.target.value)}
@@ -76,23 +76,23 @@ export default () => {
             className="btn bd-rad-8"
             size="large"
           >
-            Apply
+            Sử Dụng
           </CouponBtn>
         </Coupon>
         <Subtotal className="main-txt">
           <div className="subtotal">
-            <span className="sub-txt">Subtotal</span>
+            <span className="sub-txt">Tổng Tiền hàng</span>
             <span>$ {total}</span>
           </div>
           <div className="shipping">
-            <span className="sub-txt">Shipping</span>
+            <span className="sub-txt">Phí Giao Hàng</span>
             <span>$ {shipping}</span>
           </div>
         </Subtotal>
         <Total>
-          <div className="total main-txt">Total</div>
+          <div className="total main-txt">Tổng tiền phải thanh toán</div>
           <div className="total-value">
-            <span className="prefix sub-txt">USD</span>
+            <span className="prefix sub-txt">Vn</span>
             <span className="value">${total + shipping}</span>
           </div>
         </Total>

@@ -109,11 +109,11 @@ export default () => {
         rules={[
           {
             type: "email",
-            message: "The input is not valid E-mail!",
+            message: "Email Không hợp lệ",
           },
           {
             required: true,
-            message: "Please input your E-mail!",
+            message: "Vui lòng nhập email!",
           },
         ]}
       >
@@ -123,7 +123,7 @@ export default () => {
       <Form.Item
         name={"firstName"}
         label="First Name"
-        rules={[{ required: true, message: "Please input your first name" }]}
+        rules={[{ required: true, message: "Vui lòng nhập tên của bạn" }]}
       >
         <Input />
       </Form.Item>
@@ -131,7 +131,7 @@ export default () => {
       <Form.Item
         name={"lastName"}
         label="Last Name"
-        rules={[{ required: true, message: "Please input your last name" }]}
+        rules={[{ required: true, message: "Vui lòng nhập họ của bạn" }]}
       >
         <Input />
       </Form.Item>
@@ -139,7 +139,7 @@ export default () => {
       <Form.Item
         name={"address"}
         label="Address"
-        rules={[{ required: true, message: "Please input your address" }]}
+        rules={[{ required: true, message: "Vui lòng nhập địa chỉ của bạn" }]}
       >
         <Input />
       </Form.Item>
@@ -159,7 +159,7 @@ export default () => {
           {
             type: "array",
             required: true,
-            message: "Please select your habitual residence!",
+            message: "Vui lòng chọn nơi cư trú của bạn!",
           },
         ]}
       >
@@ -169,11 +169,11 @@ export default () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        tooltip="In case we need to contact you about your orders"
+        tooltip="Nhập thông tin liên hệ"
         rules={[
           {
             required: true,
-            message: "Please input your phone number!",
+            message: "Vui lòng nhập sđt của bạn",
           },
           () => ({
             validator(_, value) {
@@ -184,7 +184,7 @@ export default () => {
                 return Promise.resolve();
               }
 
-              return Promise.reject(new Error("Phone must have 10 numbers"));
+              return Promise.reject(new Error("SĐT gồm 10 số"));
             },
           }),
         ]}
@@ -216,7 +216,7 @@ export default () => {
         {...tailFormItemLayout}
       >
         <Checkbox>
-          I have read the <a href="">agreement</a>
+        Tôi đồng ý với <a href="">điều khoản</a>
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>

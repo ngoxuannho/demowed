@@ -61,7 +61,7 @@ export default () => {
 };
 
 export const logoUrl =
-  "https://cdn.shopify.com/s/files/1/0665/2889/files/Thesus_A_W_Wordmark_Forest_Green_2cca776c-1727-4416-868a-fa72e7359f08.png?v=1635783797";
+  "https://shopgiaythethaogiare.com/wp-content/uploads/2020/03/AnChuongShoes-02.png";
 
 export const Logo = styled.img`
   max-width: min(195px, 100%);

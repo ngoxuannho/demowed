@@ -9,7 +9,7 @@ export default ({ totalPrice }: { totalPrice: number }) => {
       <Col sm={24} lg={12}>
         <Button className="mb-3" shape="round" type="text" size="large">
           <StyledLink  to="/shop">
-            <span>Continue Shopping</span>
+            <span>Tiếp Tục Mua Sắm</span>
           </StyledLink>
         </Button>
       </Col>
@@ -17,7 +17,7 @@ export default ({ totalPrice }: { totalPrice: number }) => {
         <Input.TextArea />
       </Col>
       <Col className="total-price d-flex" sm={24} lg={6}>
-        <span>GRAND TOTAL:</span>
+        <span>Tổng Cộng :</span>
         <span> ${totalPrice}</span>
       </Col>
     </Wrapper>

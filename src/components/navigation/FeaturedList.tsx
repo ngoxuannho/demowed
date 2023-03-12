@@ -42,16 +42,16 @@ const PlusIcon = styled(PlusOutlined)`
 export default ({ className }: { className: string }) => {
   return (
     <div className={className}>
-      <Title to={"shop"}>Featured</Title>
+      <Title to={"shop"}>Giày </Title>
       <List>
         <Item>
-          <NavLink to={"#"}>Best Seller</NavLink>
+          <NavLink to={"#"}>Giày bán chạy</NavLink>
         </Item>
         <Item>
-          <NavLink to={"#"}>New In</NavLink>
+          <NavLink to={"#"}>Giày Mới</NavLink>
         </Item>
         <Item>
-          <NavLink to={"#"}>Back in Stock</NavLink>
+          <NavLink to={"#"}>Giày cũ</NavLink>
         </Item>
       </List>
     </div>

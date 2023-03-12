@@ -8,13 +8,13 @@ interface iFilterMenu {
 export default ({onClick}:iFilterMenu) => {
   return (
     <Menu onClick={onClick}>
-      <Menu.Item key="Default">Filter</Menu.Item>
-      <Menu.Item key="A-Z">Name: A-Z</Menu.Item>
-      <Menu.Item key="Z-A">Name: Z-A</Menu.Item>
-      <Menu.Item key="High-Low">Price: High-Low</Menu.Item>
-      <Menu.Item key="Low-High">Price: Low-High</Menu.Item>
-      <Menu.Item key="Latest">Release: New-Old</Menu.Item>
-      <Menu.Item key="Oldest">Release: Old-New</Menu.Item>
+     <Menu.Item key="Default">Filter</Menu.Item>
+      <Menu.Item key="A-Z">Từ: A-Z</Menu.Item>
+      <Menu.Item key="Z-A">Từ: Z-A</Menu.Item>
+      <Menu.Item key="High-Low">Giá: Thấp-Cao</Menu.Item>
+      <Menu.Item key="Low-High">Giá: Cao-Thấp</Menu.Item>
+      <Menu.Item key="Latest">Sản Phẩm: Mới-Cũ</Menu.Item>
+      <Menu.Item key="Oldest">Sản Phẩm: Cũ-Mới</Menu.Item>
     </Menu>
   );
 };

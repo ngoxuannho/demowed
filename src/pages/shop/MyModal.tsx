@@ -73,39 +73,35 @@ export default ({
               },
               {
                 original:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_1280x.jpg?v=1636413353",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                 thumbnail:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/02_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_c6367af4-64da-42fb-b754-affedbaf5360_200x.jpg?v=1636413353",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
               },
               {
-                thumbnail:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_200x.jpg?v=1636589360",
                 original:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_1280x.jpg?v=1636589360",
-              },
-              {
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                 thumbnail:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_200x.jpg?v=1636413353",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+              },{
                 original:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/06_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_8a0775c6-b229-4851-a877-446e98a00eee_1280x.jpg?v=1636413353",
-              },
-              {
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                 thumbnail:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_200x.jpg?v=1636413353",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+              },{
                 original:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/01_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_eca28d21-c9b9-4402-8ccf-574850b6917d_1280x.jpg?v=1636413353",
-              },
-              {
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                 thumbnail:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_200x.jpg?v=1636413352",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+              },{
                 original:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/05_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_f7fd2ef0-0a07-445f-be58-29203ffc1a8d_1280x.jpg?v=1636413352",
-              },
-              {
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
                 thumbnail:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_200x.jpg?v=1636413353",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+              },{
                 original:
-                  "https://cdn.shopify.com/s/files/1/0665/2889/products/03_TheWeekendBootZ_Grey_Sustainble_Vegan_2000x2000_43f0804b-140a-4e81-b8e6-3423e7154405_1280x.jpg?v=1636413353",
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
+                thumbnail:
+                  "https://streetstyleshop.vn/wp-content/uploads/2022/05/the-thao-nam-chat-10.jpg",
               },
             ]}
             thumbnailPosition={isSmallScreen ? "bottom" : "left"}
@@ -154,7 +150,7 @@ export default ({
                   )
                 }
               >
-                Add to Cart
+                Thêm Vào giỏ
               </StyledBtn>
             </AddCartBar>
           </ProductHolder>

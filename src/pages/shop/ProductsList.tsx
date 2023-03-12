@@ -87,13 +87,13 @@ export const ProductsList = () => {
                   <Products
                     to={`${id}`}
                     img={
-                      "https://cdn.shopify.com/s/files/1/0665/2889/products/2021_Footwear_Walking_Boots_Women_Vegan_Sustainable3_1280x.jpg?v=1636589360"
+                      "https://salt.tikicdn.com/ts/tmp/7a/4e/04/3aa0ff94437ecdb5b6a3829af97fc7f7.jpg"
                     }
                     imgSecondary={media.smallImageUrl}
                     title={name}
                     price={retailPrice}
                     description={
-                      "It's our bestselling boot - but upgraded. Be anywhere and do anything, in a boot that does it all. The Z is made with a water resistant upper, extra warm lining and grippy rubber sole. Featuring an inside zip that makes it easy to slip them on-and-off for life on the go. And the best part - each pair is 100% vegan and made with 95% natural and recycled materials."
+                      "QUANG ANH SHOP KÍNH CHÀO QUÝ KHÁCH * MẪU GIÀY SNEAKER MỚI ĐÃ CÓ MẶT TẠI QUANG ANH SHOP, HÀNG BAO CHUẨN, BAO ĐẸP* SHOP CHUYÊN GIÀY SNEAKER NAM CAO CẤP* ..."
                     }
                     listLayout={listLayout}
                     colorway={colorway.split("/")}

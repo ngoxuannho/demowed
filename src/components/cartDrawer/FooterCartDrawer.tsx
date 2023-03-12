@@ -14,16 +14,16 @@ export default ({onClose} : {onClose: () => void}) => {
   return (
     <Wrapper>
       <div className="total-price">
-        Total Price:
+        Tổng Tiền =:
         <div className="value ms-auto">$ {total}</div>
       </div>
       <Buttons>
         <Button onClick={onClose} className="antd-btn" type="text" shape="round">
           <Link  to="/cart">
-            <u  >View Cart</u>
+            <u  >Xem Giỏ Hàng </u>
           </Link>
         </Button>
-        <ButtonLink onClick={onClose} to="/checkout">Check Out</ButtonLink>
+        <ButtonLink onClick={onClose} to="/checkout">Thanh Toán</ButtonLink>
       </Buttons>
     </Wrapper>
   );

@@ -5,10 +5,10 @@ export const ResultAntd = () => {
     <Result
       status="500"
       title="500"
-      subTitle="Sorry, something went wrong."
+      subTitle="Đã có Lỗi Xảy ra"
       extra={
         <Link to="/">
-          <Button type="primary">Back Home</Button>
+          <Button type="primary">Quay Lại</Button>
         </Link>
       }
     />

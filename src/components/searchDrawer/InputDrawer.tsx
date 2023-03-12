@@ -49,7 +49,7 @@ export default ({ onClose, visible }: iDrawer) => {
   };
   return (
     <Drawer
-      title="Search anything you need"
+      title="Tìm Kiếm Sản Phẩm Bạn Cần..."
       headerStyle={{ fontSize: "16px", fontWeight: 500 }}
       autoFocus={true}
       placement="top"
@@ -73,7 +73,8 @@ export default ({ onClose, visible }: iDrawer) => {
           ref={inputRef}
           bordered={false}
           prefix={<SearchOutlined />}
-          placeholder="Converse ..."
+          placeholder="Nike ..."
+          aria-placeholder="Adidas" 
         />
       </Form>
       {searchResults && (

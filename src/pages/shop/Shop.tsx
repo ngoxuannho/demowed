@@ -4,7 +4,7 @@ import { ProductsList } from"./ProductsList"
 
 const HeroShop = styled(Hero)`
   min-height: 450px;
-  background-image: url("https://cdn.shopify.com/s/files/1/0665/2889/files/2021_WeekendBoot__Women__Vegan_Sustainable2_992x.jpg?v=1641415254,992w");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRacenqY0Kh1fXkQGE9KSelc58E0FchE-cRSw&usqp=CAU");
   .btn {
     display: none !important;
   }

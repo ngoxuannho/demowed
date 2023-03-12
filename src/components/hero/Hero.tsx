@@ -7,7 +7,7 @@ export const Hero = styled.div`
   justify-content: center;
   align-items: center;
   background-image: url(
-      "https://cdn.shopify.com/s/files/1/0665/2889/files/2021_Indigo_Weekend_Walking_Boots__Women__Vegan_Sustainable_992x.jpg?v=1635455452,992w"
+      "https://a.ipricegroup.com/trends-article/top-3-mau-giay-converse-duoc-cac-ngoi-sao-quoc-te-ua-chuong-medium.jpg"
     );
   background-size: cover;
   min-height: 800px;
@@ -70,7 +70,7 @@ export default ({ img, text, header, className }: HeroProps) => {
           <Header>{header}</Header>
         </SectionHeading>
         <div className="d-flex btn justify-content-center">
-          <HeroBtn to={"/shop"}>Shop Now</HeroBtn>
+          <HeroBtn to={"/shop"}>Xem Sản Phẩm</HeroBtn>
         </div>
       </Wrapper>
     </Hero>

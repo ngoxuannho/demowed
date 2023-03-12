@@ -13,47 +13,47 @@ export default () => {
       </MyCol>
       <MyCol xs={12} sm={12} md={6} lg={5}>
         <ul>
-          <div className="title">Our shop</div>
+          <div className="title">Cửa Hàng </div>
           <li>
-            <Link to={"/shop"}>All product</Link>
+            <Link to={"/shop"}>Tất Cả Sản Phẩm</Link>
           </li>
           <li>
-            <Link to={"/shop"}>Best Seller</Link>
+            <Link to={"/shop"}>Snr Phẩm Bán Chạy</Link>
           </li>
           <li>
-            <Link to={"/shop"}>New In</Link>
+            <Link to={"/shop"}>Sản Phẩm Mới</Link>
           </li>
           <li>
-            <Link to={"/shop"}>Back in Stock</Link>
+            <Link to={"/shop"}>Sản Phẩm đi học</Link>
           </li>
         </ul>
       </MyCol>
       <MyCol xs={12} sm={12}  md={6} lg={5} >
         <ul className="unavailable">
-          <div className="title">Help</div>
-          <li>Size Guides</li>
-          <li>Shipping Information</li>
-          <li>Refund Policy</li>
-          <li>Wear, Care and FAQ</li>
+          <div className="title">Hổ trợ </div>
+          <li>Size</li>
+          <li>Thủ Tục Thanh Toán</li>
+          <li>Đổi trả hàng</li>
+          <li>Mua Hàng</li>
         </ul>
       </MyCol>
       <MyCol xs={12} lg={5} md={6} sm={12}>
         <ul className="unavailable">
-          <div className="title">About Us</div>
-          <li>Values </li>
-          <li>Terms of Service</li>
-          <li>Contact Us</li>
-          <li>We're Hiring</li>
+          <div className="title">Về chúng tôi</div>
+          <li>Thông Tin</li>
+          <li>Liên Hệ </li>
+          <li>GiớI thiệu</li>
+          <li>GiớI thiệu</li>
         </ul>
       </MyCol>
       <MyCol xs={12} lg={5} md={6} sm={12}>
         <ul className="contact">
-          <div className="title">Get In Touch</div>
-          <li>Call us at 0999999999</li>
+          <div className="title">Liên Lạc</div>
+          <li>SĐT 0999999999</li>
           <li>Email: nhoga@gmail.com</li>
-          <li className="media">instagram</li>
+          <li className="media">youtube</li>
           <li className="media">facebook</li>
-          <li className="media">pinterest</li>
+          <li className="media">githut</li>
         </ul>
       </MyCol>
     </MyRow>
@@ -115,4 +115,4 @@ const MyCol = styled(Col)`
 `;
 
 const logoUrl =
-  "https://cdn.shopify.com/s/files/1/0665/2889/files/Thesus_A_W_Wordmark_White_400x.png?v=1635168580";
+  "https://png.pngtree.com/template/20191218/ourlarge/pngtree-modern-logos-for-sneakers-can-be-used-for-store-logos-or-image_340676.jpg";
